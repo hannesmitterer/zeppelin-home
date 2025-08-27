@@ -35,7 +35,7 @@ permalink: /
             </div>
             
             <div class="feature-card">
-                <img src="{{ site.baseurl }}/assets/images/zeppelin-hero.svg" alt="Cross-Platform Zeppelin Home Compatibility" class="feature-image">
+                <img src="{{ site.baseurl }}/assets/images/zeppelin-hero.svg" alt="Zeppelin Home - Luxury Floating Residence" class="feature-image">
                 <h3>Ultimate Mobility & Freedom</h3>
                 <p>Break free from traditional real estate constraints. Your Zeppelin Home adapts to any climate and location, from urban skylines to remote natural wonders. With cross-platform compatibility for various landing systems and international airspace integration, the world truly becomes your neighborhood.</p>
             </div>
