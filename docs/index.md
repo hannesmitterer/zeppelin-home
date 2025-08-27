@@ -163,8 +163,8 @@ Before installing Zeppelin Home, ensure your system meets the minimum requiremen
 
 ```bash
 # Clone the repository
-git clone https://github.com/hannesmitterer/zeppelin-.git
-cd zeppelin-
+git clone https://github.com/hannesmitterer/zeppelin-home.git
+cd zeppelin-home
 
 # Start the services
 docker-compose up -d
