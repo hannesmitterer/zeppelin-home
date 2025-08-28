@@ -1,12 +1,16 @@
 # Media Assets Directory
 
-This directory contains media assets for the Zeppelin Home documentation site.
+This directory contains media assets for the Zeppelin Home promotional site.
 
 ## Available Assets
 
-- Logos and branding materials
-- Screenshots and product images  
-- Press kit materials
-- Promotional graphics
+- High-quality 3D SVG renderings are located in `/assets/images/` directory
+- Hero graphics and promotional materials
+- Interior and technology visualizations  
+- Responsive and scalable image assets
 
-*Media assets will be added as they become available.*
+## Usage
+
+All media assets are optimized for web delivery and responsive design. The primary graphics are in SVG format for scalability and performance.
+
+*For promotional materials and press kit assets, see the main site at [https://hannesmitterer.github.io/zeppelin-](https://hannesmitterer.github.io/zeppelin-)*

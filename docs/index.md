@@ -1,53 +1,61 @@
 ---
 layout: default
-title: "Home"
+title: "Zeppelin Home - Revolutionary Floating Living Solutions"
+description: "Experience the future of luxury living with Zeppelin Home's innovative floating residences. Combining cutting-edge aviation technology with modern home design for unparalleled mobility and comfort."
 ---
 
-# Zeppelin Home
-## Revolutionary Smart Home Automation
+<section class="hero">
+    <div class="hero-content">
+        <h1>ZEPPELIN HOME</h1>
+        <p>The Future of Floating Living</p>
+        <img src="{{ site.baseurl }}/assets/images/zeppelin-hero.svg" alt="Zeppelin Home - Luxury Floating Residence" class="hero-image">
+        <p>Experience revolutionary living that rises above the ordinary. Our floating homes combine aviation excellence with luxury residential design.</p>
+    </div>
+</section>
 
-Welcome to the future of home automation. Zeppelin Home is an open-source platform that puts you in complete control of your smart home experience.
+<section class="features">
+    <div class="container">
+        <div class="section-header">
+            <h2>Revolutionary Living Experience</h2>
+            <p>Discover how Zeppelin Home transforms the concept of modern living through innovative floating architecture and sustainable design.</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="{{ site.baseurl }}/assets/images/zeppelin-interior.svg" alt="Luxurious Zeppelin Home Interior" class="feature-image">
+                <h3>Luxury Interior Design</h3>
+                <p>Step into a world of refined elegance with our carefully curated interiors. Each Zeppelin Home features premium materials, panoramic windows with 360° views, and smart home technology that adapts to your lifestyle. Experience living spaces that float effortlessly above the world while maintaining the highest standards of comfort and sophistication.</p>
+            </div>
+            
+            <div class="feature-card">
+                <img src="{{ site.baseurl }}/assets/images/zeppelin-tech.svg" alt="Advanced Zeppelin Propulsion Technology" class="feature-image">
+                <h3>Advanced Propulsion System</h3>
+                <p>Our state-of-the-art electric propulsion technology ensures whisper-quiet operation and zero-emission travel. With GPS-guided auto-pilot, weather adaptation systems, and renewable energy integration, your Zeppelin Home moves intelligently and sustainably through the sky, making every journey an adventure in luxury.</p>
+            </div>
+            
+            <div class="feature-card">
+                <img src="{{ site.baseurl }}/assets/images/zeppelin-hero.svg" alt="Zeppelin Home - Luxury Floating Residence" class="feature-image">
+                <h3>Ultimate Mobility & Freedom</h3>
+                <p>Break free from traditional real estate constraints. Your Zeppelin Home adapts to any climate and location, from urban skylines to remote natural wonders. With cross-platform compatibility for various landing systems and international airspace integration, the world truly becomes your neighborhood.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-![Zeppelin Home Logo](../media/zeppelin-logo.png)
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Elevate Your Living?</h2>
+        <p>Join the revolution in modern living. Experience the freedom, luxury, and innovation that only Zeppelin Home can provide.</p>
+        <a href="#contact" class="btn">Learn More</a>
+    </div>
+</section>
 
----
-
-## Navigation
-
-- [🏠 About Zeppelin Home](#project-overview)
-- [📰 Press & Media](#press-kit)  
-- [💰 Support Our Mission](#crowdfunding-documentation)
-- [🤝 Community](#support--community)
-- [📄 License](#license--legal)
-
----
-
-## Project Overview
-
-**Zeppelin Home** is an innovative open-source platform designed to revolutionize home automation and smart living experiences. We believe that everyone deserves to have complete control over their smart home, without complexity or compromise.
-
-![Smart Home Dashboard](../media/dashboard-preview.png)
-
-### 🌟 Key Features
-
-- **🔗 Smart Integration**: Seamless connectivity with 500+ device types and existing home automation systems
-- **👤 User-Centric Design**: Intuitive interface designed for everyday users - no technical expertise required
-- **📈 Scalable Architecture**: Built to grow with your home automation needs, from single room to entire estates  
-- **🌍 Open Source**: Community-driven development with transparent processes and no vendor lock-in
-- **📱 Cross-Platform Support**: Works on mobile, desktop, web, and embedded devices
-
-### 🎯 Our Vision
-
-To create an accessible, powerful, and community-driven home automation platform that puts users in complete control of their smart home experience. We're building the future of home automation - together.
-
-### ✨ Why Choose Zeppelin Home?
-
-- **Freedom**: No subscription fees, no data harvesting, no artificial limitations
-- **Privacy**: Your data stays in your home - complete privacy by design
-- **Community**: Join thousands of users and contributors building the future together
-- **Innovation**: Regular updates with cutting-edge features from our active development community
-
-![Community Growth](../media/community-stats.png)
+<footer class="footer" id="contact">
+    <div class="container">
+        <p>&copy; 2024 Zeppelin Home. Elevating the future of residential living.</p>
+        <p>Contact us to schedule your exclusive preview flight.</p>
+    </div>
+</footer>
 
 ---
 
