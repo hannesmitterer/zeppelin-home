@@ -1,12 +1,12 @@
 ---
 layout: default
-title: "Home"
+title: "Documentation"
 ---
 
 # Zeppelin Home
-## Revolutionary Smart Home Automation
+## Innovative Floating Home Solutions
 
-Welcome to the future of home automation. Zeppelin Home is an open-source platform that puts you in complete control of your smart home experience.
+Welcome to the future of waterfront living. Zeppelin Home specializes in innovative floating home solutions for modern living.
 
 ![Zeppelin Home Logo](../media/zeppelin-logo.png)
 

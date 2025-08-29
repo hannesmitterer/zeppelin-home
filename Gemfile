@@ -1,16 +1,5 @@
 source "https://rubygems.org"
 
-# Jekyll and GitHub Pages compatibility
-gem "jekyll", "~> 4.3.0"
-
-# Theme
-gem "minima", "~> 2.5"
-
-# Jekyll plugins (matching _config.yml)
-gem "jekyll-feed", "~> 0.12"
-gem "jekyll-sitemap", "~> 1.4"
-gem "jekyll-seo-tag", "~> 2.8"
-
 # GitHub Pages compatibility
 gem "github-pages", group: :jekyll_plugins
 

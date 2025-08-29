@@ -1,8 +1,8 @@
 # Zeppelin Home - GitHub Pages Configuration
 title: "Zeppelin Home"
-description: "Revolutionary home automation platform - Open source, community-driven smart home solutions"
-baseurl: ""
-url: "https://hannesmitterer.github.io/zeppelin-"
+description: "Innovative floating home solutions for modern living"
+baseurl: "/zeppelin-home"
+url: "https://hannesmitterer.github.io"
 
 # GitHub Pages settings
 repository: hannesmitterer/zeppelin-
@@ -44,3 +44,5 @@ exclude:
   - .gitignore
   - LICENSE
   - README.md
+  - vendor/
+  - .bundle/

@@ -1,0 +1,195 @@
+---
+# Custom CSS for Zeppelin Home
+---
+
+@import "minima";
+
+/* Custom styles for Zeppelin Home */
+:root {
+  --zeppelin-blue: #2c5aa0;
+  --zeppelin-light-blue: #4a7bc8;
+  --zeppelin-dark: #1e3a5f;
+  --zeppelin-gray: #6c757d;
+  --zeppelin-light-gray: #f8f9fa;
+}
+
+/* Header and navigation */
+.site-header {
+  background-color: var(--zeppelin-blue);
+  border-bottom: 3px solid var(--zeppelin-light-blue);
+}
+
+.site-title, .site-nav .page-link {
+  color: white !important;
+}
+
+.site-title:hover {
+  color: var(--zeppelin-light-blue) !important;
+}
+
+/* Main content */
+.page-content {
+  padding-top: 2rem;
+}
+
+/* Homepage hero section */
+.hero-section {
+  background: linear-gradient(135deg, var(--zeppelin-blue), var(--zeppelin-light-blue));
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  border-radius: 10px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-section .subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Feature cards */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.feature-card {
+  background: white;
+  border: 2px solid var(--zeppelin-light-gray);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(44, 90, 160, 0.1);
+  border-color: var(--zeppelin-light-blue);
+}
+
+.feature-card h3 {
+  color: var(--zeppelin-blue);
+  margin-bottom: 1rem;
+}
+
+/* Call-to-action buttons */
+.cta-button {
+  display: inline-block;
+  background: var(--zeppelin-blue);
+  color: white !important;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-decoration: none !important;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin: 0.5rem;
+}
+
+.cta-button:hover {
+  background: var(--zeppelin-dark);
+  color: white !important;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  border: 2px solid var(--zeppelin-blue);
+  color: var(--zeppelin-blue) !important;
+}
+
+.cta-button.secondary:hover {
+  background: var(--zeppelin-blue);
+  color: white !important;
+}
+
+/* Content sections */
+.content-section {
+  margin: 4rem 0;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--zeppelin-light-gray);
+}
+
+.content-section:last-child {
+  border-bottom: none;
+}
+
+.content-section h2 {
+  color: var(--zeppelin-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+/* Navigation improvements */
+.site-nav .page-link:hover {
+  color: var(--zeppelin-light-blue) !important;
+  text-decoration: none;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--zeppelin-dark);
+  color: white;
+  padding: 3rem 0;
+}
+
+.site-footer a {
+  color: var(--zeppelin-light-blue);
+}
+
+.site-footer a:hover {
+  color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-section .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Typography improvements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--zeppelin-dark);
+}
+
+.post-content h2 {
+  color: var(--zeppelin-blue);
+  border-bottom: 2px solid var(--zeppelin-light-blue);
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;
+}
+
+/* Links */
+a {
+  color: var(--zeppelin-blue);
+}
+
+a:hover {
+  color: var(--zeppelin-dark);
+}
