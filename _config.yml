@@ -44,3 +44,17 @@ exclude:
   - .gitignore
   - LICENSE
   - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .github/
+  - GITHUB_PAGES_SETUP.md
+
+# Include directories that might be ignored by default
+include:
+  - .htaccess
+  - _pages
