@@ -1,16 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeppelin Home - Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=./docs/">
-    <link rel="canonical" href="./docs/">
+  <meta charset="UTF-8">
+  <title>zeppelin- Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts for modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(120deg, #1e3c72, #2a5298 90%);
+      color: #fff;
+    }
+    header {
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+      background: rgba(20, 40, 80, 0.7);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      margin: 0.5rem 0 1.5rem 0;
+      color: #cce7ff;
+    }
+    .repo-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.4rem;
+      background: #fff;
+      color: #2a5298;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.11);
+      transition: background 0.2s, color 0.2s;
+    }
+    .repo-link:hover {
+      background: #2a5298;
+      color: #fff;
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .topic-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 1.4rem 1rem;
+      box-shadow: 0 4px 22px rgba(0,0,0,0.09);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.18s;
+      position: relative;
+    }
+    .topic-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 6px 26px rgba(30,60,114,0.17);
+    }
+    .topic-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 8px rgba(20,40,80,0.09);
+    }
+    .topic-title {
+      font-size: 1.2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #cce7ff;
+      text-align: center;
+    }
+    .topic-desc {
+      font-size: 1rem;
+      color: #e3eefd;
+      margin-bottom: 1rem;
+      text-align: center;
+      min-height: 40px;
+    }
+    .topic-link {
+      display: inline-block;
+      background: #fff;
+      color: #2a5298;
+      text-decoration: none;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+    .topic-link:hover {
+      background: #2a5298;
+      color: #fff;
+    }
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 1.4rem;
+      }
+      .topics-grid {
+        grid-template-columns: 1fr;
+      }
+      main {
+        margin: 1rem auto;
+      }
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      font-size: 1rem;
+      color: #cce7ff;
+      background: rgba(20, 40, 80, 0.6);
+      margin-top: 2rem;
+      border-radius: 0 0 16px 16px;
+    }
+  </style>
 </head>
 <body>
-    <p>Redirecting to <a href="./docs/">Zeppelin Home</a>...</p>
-    <script>
-        window.location.href = './docs/';
-    </script>
+  <header>
+    <h1 class="hero-title">zeppelin- Project</h1>
+    <p class="hero-desc">
+      A visually modern and attractive website for the zeppelin- repository.<br>
+      Explore topics, images, and descriptions below.
+    </p>
+    <a class="repo-link" href="https://github.com/hannesmitterer/zeppelin-" target="_blank">View on GitHub</a>
+  </header>
+  <main>
+    <h2 style="text-align:center; margin-bottom:2rem;">Repository Topics & Files</h2>
+    <div class="topics-grid">
+      <!-- Example cards: Replace/add more as needed -->
+      <div class="topic-card">
+        <img src="media/zeppelin_logo.png" alt="Zeppelin Logo" class="topic-img">
+        <div class="topic-title">README.md</div>
+        <div class="topic-desc">Project overview, setup instructions, and key information.</div>
+        <a class="topic-link" href="README.md" target="_blank">View README</a>
+      </div>
+      <div class="topic-card">
+        <img src="media/sample_image1.jpg" alt="Sample Topic" class="topic-img">
+        <div class="topic-title">index.html</div>
+        <div class="topic-desc">Main website entry point for the Zeppelin project.</div>
+        <a class="topic-link" href="index.html" target="_blank">View index.html</a>
+      </div>
+      <div class="topic-card">
+        <img src="media/sample_image2.jpg" alt="Sample Topic" class="topic-img">
+        <div class="topic-title">docs/</div>
+        <div class="topic-desc">Documentation folder for extra guides, tutorials, or pages.</div>
+        <a class="topic-link" href="docs/" target="_blank">Browse docs</a>
+      </div>
+      <div class="topic-card">
+        <img src="media/sample_image3.jpg" alt="Sample Topic" class="topic-img">
+        <div class="topic-title">media/</div>
+        <div class="topic-desc">Images and assets used in the website and documentation.</div>
+        <a class="topic-link" href="media/" target="_blank">Browse images</a>
+      </div>
+      <div class="topic-card">
+        <img src="media/sample_image4.jpg" alt="Sample Topic" class="topic-img">
+        <div class="topic-title">_config.yml</div>
+        <div class="topic-desc">Jekyll/GitHub Pages configuration for site generation.</div>
+        <a class="topic-link" href="_config.yml" target="_blank">View config</a>
+      </div>
+      <!-- Add more cards for other files/topics as needed -->
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Zeppelin Project by <a href="https://github.com/hannesmitterer" style="color:#fff;text-decoration:underline;">hannesmitterer</a>.
+    <br>
+    Powered by GitHub Pages.
+  </footer>
 </body>
 </html>
