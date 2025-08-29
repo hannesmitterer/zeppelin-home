@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zeppelin Home - Revolutionary open-source smart home automation platform with four distinct approaches to fit every lifestyle">
+    <title>Zeppelin Home - Revolutionary Smart Home Automation</title>
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Zeppelin Home - Revolutionary Smart Home Automation">
+    <meta property="og:description" content="Open-source platform with four distinct approaches to smart home automation. Privacy-first, community-driven, and completely customizable.">
+    <meta property="og:image" content="https://hannesmitterer.github.io/zeppelin-/media/zeppelin-logo.svg">
+    <meta property="og:url" content="https://hannesmitterer.github.io/zeppelin-/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zeppelin Home - Revolutionary Smart Home Automation">
+    <meta name="twitter:description" content="Open-source platform with four distinct approaches to smart home automation">
+    <meta name="twitter:image" content="https://hannesmitterer.github.io/zeppelin-/media/zeppelin-logo.svg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./media/zeppelin-logo.svg">
+    
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --background: #ffffff;
+            --background-light: #f9fafb;
+            --background-dark: #111827;
+            --border-color: #e5e7eb;
+            --border-light: #f3f4f6;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+        }
+        
+        /* Skip to main content for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background: var(--background);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--primary-color);
+            background: var(--background-light);
+            outline: none;
+        }
+        
+        .cta-button {
+            background: var(--gradient);
+            color: white !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cta-button:hover,
+        .cta-button:focus {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: var(--gradient) !important;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .button-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        .button-primary:hover,
+        .button-primary:focus {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            outline: none;
+        }
+        
+        .button-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        
+        .button-secondary:hover,
+        .button-secondary:focus {
+            background: white;
+            color: var(--primary-color);
+            outline: none;
+        }
+        
+        /* Approaches Section */
+        .approaches {
+            padding: 4rem 0;
+            background: var(--background-light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .approaches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .approach-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .approach-card:hover,
+        .approach-card:focus-within {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .approach-card:hover::before,
+        .approach-card:focus-within::before {
+            opacity: 1;
+        }
+        
+        .approach-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .approach-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .approach-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .approach-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+        
+        .approach-link:hover,
+        .approach-link:focus {
+            gap: 0.75rem;
+            outline: none;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--background-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover .feature-icon,
+        .feature-item:focus-within .feature-icon {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            transform: scale(1.1);
+        }
+        
+        .feature-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* Community Section */
+        .community {
+            padding: 4rem 0;
+            background: var(--background-light);
+        }
+        
+        .community-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .community-text h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .community-text p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--background-dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            line-height: 1.7;
+        }
+        
+        .footer-section a:hover,
+        .footer-section a:focus {
+            color: white;
+            outline: none;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-color);
+                width: 100%;
+                text-align: center;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .approaches-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .community-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        
+        /* Focus indicators */
+        *:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-primary: #000000;
+                --text-secondary: #333333;
+                --border-color: #000000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header id="header">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="#" class="logo" aria-label="Zeppelin Home - Home page">
+                <img src="./media/zeppelin-logo.svg" alt="Zeppelin Home logo">
+                <span>Zeppelin Home</span>
+            </a>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#approaches">Approaches</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#support" class="cta-button">Get Started</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                ☰
+            </button>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Revolutionary Smart Home Automation</h1>
+                    <p class="subtitle">Open-source platform with four distinct approaches to fit every lifestyle. Privacy-first, community-driven, and completely customizable.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#approaches" class="button button-primary">Explore Approaches</a>
+                        <a href="#community" class="button button-secondary">Join Community</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Four Approaches Section -->
+        <section id="approaches" class="approaches">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Four Distinct Approaches to Smart Living</h2>
+                    <p>Choose the perfect path for your smart home journey. Each approach is designed to meet different needs, technical skills, and lifestyle preferences.</p>
+                </div>
+                
+                <div class="approaches-grid">
+                    <!-- DIY Approach -->
+                    <article class="approach-card">
+                        <div class="approach-icon" aria-hidden="true">🔧</div>
+                        <h3>DIY Smart Home</h3>
+                        <p>Perfect for tech enthusiasts who love hands-on control. Build and customize every aspect of your smart home automation system.</p>
+                        
+                        <ul class="features-list">
+                            <li>Complete customization freedom</li>
+                            <li>Open-source flexibility</li>
+                            <li>Community-driven support</li>
+                            <li>Cost-effective solution</li>
+                            <li>Learning-focused approach</li>
+                        </ul>
+                        
+                        <a href="#diy-details" class="approach-link" aria-label="Learn more about DIY Smart Home approach">
+                            Learn More →
+                        </a>
+                    </article>
+                    
+                    <!-- Professional Setup -->
+                    <article class="approach-card">
+                        <div class="approach-icon" aria-hidden="true">👨‍💼</div>
+                        <h3>Professional Setup</h3>
+                        <p>Expert installation and configuration service for those who want premium results without the technical complexity.</p>
+                        
+                        <ul class="features-list">
+                            <li>Expert installation service</li>
+                            <li>Professional optimization</li>
+                            <li>Warranty and support</li>
+                            <li>Time-saving solution</li>
+                            <li>Premium integration</li>
+                        </ul>
+                        
+                        <a href="#professional-details" class="approach-link" aria-label="Learn more about Professional Setup approach">
+                            Learn More →
+                        </a>
+                    </article>
+                    
+                    <!-- Hybrid Solution -->
+                    <article class="approach-card">
+                        <div class="approach-icon" aria-hidden="true">⚖️</div>
+                        <h3>Hybrid Solution</h3>
+                        <p>Best of both worlds - professional foundation with DIY customization. Start with expert setup, then expand at your own pace.</p>
+                        
+                        <ul class="features-list">
+                            <li>Professional foundation</li>
+                            <li>DIY expansion capability</li>
+                            <li>Balanced learning curve</li>
+                            <li>Flexible growth path</li>
+                            <li>Risk mitigation</li>
+                        </ul>
+                        
+                        <a href="#hybrid-details" class="approach-link" aria-label="Learn more about Hybrid Solution approach">
+                            Learn More →
+                        </a>
+                    </article>
+                    
+                    <!-- Enterprise/Multi-Property -->
+                    <article class="approach-card">
+                        <div class="approach-icon" aria-hidden="true">🏢</div>
+                        <h3>Enterprise & Multi-Property</h3>
+                        <p>Scalable solutions for large-scale deployments, property management, and commercial smart building applications.</p>
+                        
+                        <ul class="features-list">
+                            <li>Large-scale deployment</li>
+                            <li>Centralized management</li>
+                            <li>Multi-tenant support</li>
+                            <li>Enterprise security</li>
+                            <li>Commercial licensing</li>
+                        </ul>
+                        
+                        <a href="#enterprise-details" class="approach-link" aria-label="Learn more about Enterprise & Multi-Property approach">
+                            Learn More →
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose Zeppelin Home?</h2>
+                    <p>Revolutionary features that put you in complete control of your smart home experience.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">🔒</div>
+                        <h3>Privacy First</h3>
+                        <p>Your data stays in your home. No cloud dependencies, no data harvesting, complete privacy by design.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">🌍</div>
+                        <h3>Open Source</h3>
+                        <p>100% open source with transparent development. No hidden algorithms or backdoors.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">🔗</div>
+                        <h3>500+ Devices</h3>
+                        <p>Seamless integration with over 500 device types and existing automation systems.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">📱</div>
+                        <h3>Cross-Platform</h3>
+                        <p>Works on mobile, desktop, web, and embedded devices. One platform, everywhere.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">💰</div>
+                        <h3>No Subscriptions</h3>
+                        <p>Free forever. No subscription fees, no artificial limitations, no vendor lock-in.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon" aria-hidden="true">🚀</div>
+                        <h3>Regular Updates</h3>
+                        <p>Cutting-edge features from our active development community. Always evolving.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Community Section -->
+        <section id="community" class="community">
+            <div class="container">
+                <div class="community-content">
+                    <div class="community-text">
+                        <h2>Join Our Growing Community</h2>
+                        <p>Be part of the future of home automation. Connect with thousands of users, contributors, and smart home enthusiasts building the next generation of automation technology.</p>
+                        
+                        <div class="hero-buttons">
+                            <a href="https://discord.gg/zeppelinhome" class="button button-primary" target="_blank" rel="noopener noreferrer">Join Discord</a>
+                            <a href="https://github.com/hannesmitterer/zeppelin-" class="button button-secondary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Commits</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Devices</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Open Source</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Support Section -->
+        <section id="support" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get Started Today</h2>
+                    <p>Ready to revolutionize your smart home? Choose your approach and join the community.</p>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#approaches" class="button button-primary">Choose Your Approach</a>
+                    <a href="mailto:press@zeppelinhome.com" class="button button-secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Zeppelin Home</h3>
+                    <p>Revolutionary open-source smart home automation platform. Privacy-first, community-driven, and completely customizable.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#approaches">Four Approaches</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="https://github.com/hannesmitterer/zeppelin-" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="https://discord.gg/zeppelinhome" target="_blank" rel="noopener noreferrer">Discord Server</a></li>
+                        <li><a href="https://github.com/hannesmitterer/zeppelin-/discussions" target="_blank" rel="noopener noreferrer">Discussions</a></li>
+                        <li><a href="https://github.com/hannesmitterer/zeppelin-/issues" target="_blank" rel="noopener noreferrer">Report Issues</a></li>
+                        <li><a href="mailto:press@zeppelinhome.com">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="./LICENSE">License (GPL v3)</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Zeppelin Home Project. Licensed under GPL v3. Built with ❤️ by the community.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.contains('active');
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', !isOpen);
+            mobileMenuToggle.textContent = isOpen ? '☰' : '✕';
+        });
+        
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.textContent = '☰';
+            }
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.approach-card, .feature-item, .stat-item').forEach((el) => {
+            observer.observe(el);
+        });
+        
+        // Keyboard navigation improvements
+        document.addEventListener('keydown', (e) => {
+            // Escape key closes mobile menu
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.textContent = '☰';
+                mobileMenuToggle.focus();
+            }
+        });
+        
+        // Focus management for mobile menu
+        navLinks.addEventListener('focusout', (e) => {
+            // Close menu if focus moves outside nav
+            setTimeout(() => {
+                if (!navLinks.contains(document.activeElement) && 
+                    document.activeElement !== mobileMenuToggle) {
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    mobileMenuToggle.textContent = '☰';
+                }
+            }, 100);
+        });
+        
+        // Preload images for better performance
+        const imagesToPreload = [
+            './media/zeppelin-logo.png'
+        ];
+        
+        imagesToPreload.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+        
+        // Simple analytics event tracking (privacy-friendly)
+        function trackEvent(category, action, label) {
+            // This would integrate with privacy-friendly analytics
+            console.log(`Event: ${category} - ${action} - ${label}`);
+        }
+        
+        // Track approach card interactions
+        document.querySelectorAll('.approach-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const approachName = e.target.closest('.approach-card').querySelector('h3').textContent;
+                trackEvent('Engagement', 'Approach Click', approachName);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -12,12 +12,29 @@ Welcome to Zeppelin Home - an open-source smart home automation platform that pu
 
 **[Visit the Zeppelin Home Website →](https://hannesmitterer.github.io/zeppelin-/)**
 
-Our GitHub Pages site showcases:
-- Product overview and key features
-- Press kit and media resources  
-- Crowdfunding campaign information
+Our modern, accessible website showcases:
+- **Four Distinct Approaches** to smart home automation for every lifestyle
+- **Modern Design** with improved graphics and accessibility
+- **Mobile-Responsive** design optimized for all devices
+- **Privacy-First** approach to smart homes
 - Community resources and support
-- Privacy-focused approach to smart homes
+- Open-source transparency and community-driven development
+
+## 🚀 Four Smart Home Approaches
+
+Our platform offers four distinct approaches to fit different needs and preferences:
+
+### 🔧 DIY Smart Home
+Perfect for tech enthusiasts who love hands-on control and complete customization freedom.
+
+### 👨‍💼 Professional Setup  
+Expert installation and configuration service for premium results without technical complexity.
+
+### ⚖️ Hybrid Solution
+Best of both worlds - professional foundation with DIY expansion capabilities.
+
+### 🏢 Enterprise & Multi-Property
+Scalable solutions for large-scale deployments and commercial applications.
 
 ## 🚀 Key Features
 
@@ -30,8 +47,8 @@ Our GitHub Pages site showcases:
 ## 🤝 Get Involved
 
 - **💬 [Join our Discord Community](https://discord.gg/zeppelinhome)**
-- **💰 [Support our Crowdfunding Campaign](https://hannesmitterer.github.io/zeppelin-/#support-our-mission)**
-- **📰 [Media & Press Kit](https://hannesmitterer.github.io/zeppelin-/#press-kit)**
+- **💰 [Support our Mission](https://hannesmitterer.github.io/zeppelin-/#support)**
+- **📰 [Media & Press Kit](https://hannesmitterer.github.io/zeppelin-/#community)**
 
 ## 📄 License
 
