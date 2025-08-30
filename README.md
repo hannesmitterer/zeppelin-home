@@ -33,6 +33,39 @@ Our GitHub Pages site showcases:
 - **💰 [Support our Crowdfunding Campaign](https://hannesmitterer.github.io/zeppelin-/#support-our-mission)**
 - **📰 [Media & Press Kit](https://hannesmitterer.github.io/zeppelin-/#press-kit)**
 
+## 🛠️ Development & Deployment
+
+### Quick Start for Contributors
+
+```bash
+# Install dependencies and start development server
+./scripts/deploy.sh serve
+
+# Test the build process
+./scripts/deploy.sh test
+
+# Add new media files
+./scripts/file-manager.sh add-media /path/to/image.png
+
+# Quick content update and push
+./scripts/file-manager.sh quick "Update campaign info"
+```
+
+### Management Scripts
+
+The repository includes helpful scripts in the `scripts/` directory:
+
+- **`deploy.sh`**: Development server, building, and testing
+- **`file-manager.sh`**: Content updates and git operations
+- **See [scripts/README.md](scripts/README.md) for detailed usage**
+
+### GitHub Pages Deployment
+
+The site automatically deploys to GitHub Pages when you push to the `main` branch:
+- **Live Site**: https://hannesmitterer.github.io/zeppelin-/
+- **Build Status**: Check the Actions tab for deployment status
+- **Deployment Time**: Typically 2-5 minutes after push
+
 ## 📄 License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
