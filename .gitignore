@@ -9,6 +9,7 @@ _site/
 
 # Additional Ruby/bundler ignore for when you run: bundle install
 /vendor
+.bundle/
 
 # Test build directories
 _test_site/
@@ -19,3 +20,6 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# GitHub Pages build artifacts
+.github-pages-cache/

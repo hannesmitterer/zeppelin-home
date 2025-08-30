@@ -53,6 +53,8 @@ exclude:
   - vendor/ruby/
   - .github/
   - GITHUB_PAGES_SETUP.md
+  - .bundle/
+  - .github-pages-cache/
 
 # Include directories that might be ignored by default
 include:
