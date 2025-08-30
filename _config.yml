@@ -29,6 +29,15 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Custom SASS configuration for enhanced styling
+sass:
+  sass_dir: assets/css
+  style: compressed
+
+# Custom head includes
+header_pages:
+  - docs/index.md
+
 # Markdown settings
 markdown: kramdown
 highlighter: rouge

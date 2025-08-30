@@ -1,0 +1,423 @@
+/* Custom CSS for enhanced mobile responsiveness and visual appeal */
+
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Enhanced CSS Variables for consistent theming */
+:root {
+  --primary-color: #2E86AB;
+  --secondary-color: #A23B72;
+  --accent-color: #F18F01;
+  --light-accent: #FFE66D;
+  --text-dark: #333;
+  --text-light: #666;
+  --bg-light: #f8f9fa;
+  --bg-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  --border-radius: 12px;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Base typography improvements */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+/* Enhanced header styling */
+.site-header {
+  background: var(--bg-gradient);
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.site-header .wrapper {
+  padding: 1rem 2rem;
+}
+
+.site-title {
+  color: white !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.site-title:hover {
+  color: var(--light-accent) !important;
+  transition: var(--transition);
+}
+
+/* Mobile-first navigation improvements */
+.site-nav {
+  position: relative;
+}
+
+.site-nav .page-link {
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.site-nav .page-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--light-accent);
+}
+
+/* Enhanced mobile menu */
+@media screen and (max-width: 600px) {
+  .site-nav {
+    background: var(--primary-color);
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+  }
+  
+  .site-nav .trigger {
+    padding: 1rem;
+  }
+  
+  .menu-icon {
+    background: white;
+    border-radius: 3px;
+  }
+  
+  .menu-icon > svg {
+    fill: var(--primary-color);
+  }
+}
+
+/* Main content enhancements */
+.page-content {
+  min-height: calc(100vh - 200px);
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+/* Typography improvements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--primary-color);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  background: var(--bg-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;
+}
+
+/* Enhanced image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  margin: 1.5rem 0;
+}
+
+img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced list styling */
+ul, ol {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.8rem;
+  padding-left: 0.5rem;
+}
+
+/* Strong emphasis on list items with emojis */
+li strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Enhanced link styling */
+a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  text-underline-offset: 3px;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration-color: var(--secondary-color);
+}
+
+/* Card-like sections for better content organization */
+.content-section {
+  background: white;
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border-left: 4px solid var(--accent-color);
+}
+
+/* Navigation section styling */
+.navigation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.nav-card {
+  background: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.nav-card:hover {
+  background: white;
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+.nav-card a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Enhanced code blocks */
+pre, code {
+  background: var(--bg-light);
+  border-radius: var(--border-radius);
+  border: 1px solid #e9ecef;
+}
+
+pre {
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+code {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9em;
+}
+
+/* Enhanced blockquotes */
+blockquote {
+  background: linear-gradient(45deg, var(--bg-light), white);
+  border-left: 4px solid var(--primary-color);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: var(--border-radius);
+  font-style: italic;
+  position: relative;
+}
+
+blockquote::before {
+  content: '"';
+  font-size: 3rem;
+  color: var(--accent-color);
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  line-height: 1;
+}
+
+/* Footer enhancements */
+.site-footer {
+  background: var(--bg-gradient);
+  color: white;
+  margin-top: 4rem;
+}
+
+.footer-heading {
+  color: white;
+  font-weight: 600;
+}
+
+.footer-col-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.contact-list li,
+.social-media-list li {
+  list-style: none;
+  margin-left: 0;
+}
+
+.contact-list a,
+.social-media-list a {
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-list a:hover,
+.social-media-list a:hover {
+  color: var(--light-accent);
+}
+
+/* Responsive design improvements */
+@media screen and (max-width: 800px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+  
+  h2 {
+    margin-top: 2rem;
+  }
+  
+  .navigation-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  img {
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .content-section {
+    margin: 1rem 0;
+    padding: 1.5rem;
+  }
+  
+  ul, ol {
+    margin-left: 1.5rem;
+  }
+  
+  blockquote {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus indicators for accessibility */
+a:focus,
+button:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .site-header,
+  .site-footer,
+  .nav-card {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: black;
+  }
+  
+  h1, h2, h3 {
+    color: black;
+    page-break-after: avoid;
+  }
+}
+
+/* Loading animations for better perceived performance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-section {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #000;
+    --secondary-color: #000;
+    --text-dark: #000;
+    --text-light: #333;
+  }
+  
+  .site-header {
+    background: #000;
+  }
+  
+  img {
+    border: 2px solid #000;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-dark: #e9ecef;
+    --text-light: #adb5bd;
+    --bg-light: #343a40;
+  }
+  
+  body {
+    background: #212529;
+    color: var(--text-dark);
+  }
+  
+  .content-section {
+    background: #343a40;
+    color: var(--text-dark);
+  }
+  
+  pre, code {
+    background: #495057;
+    color: var(--text-dark);
+  }
+}

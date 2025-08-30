@@ -1,0 +1,72 @@
+<!-- Custom head additions for enhanced styling and responsiveness -->
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+<!-- Enhanced meta tags for better mobile experience -->
+<meta name="theme-color" content="#2E86AB">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+
+<!-- Preconnect to improve performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Favicon and app icons for better branding -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/media/zeppelin-logo.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/media/zeppelin-logo.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/media/zeppelin-logo.png' | relative_url }}">
+<link rel="mask-icon" href="{{ '/media/zeppelin-logo.png' | relative_url }}" color="#2E86AB">
+
+<!-- Web App Manifest for PWA-like experience -->
+<meta name="msapplication-TileColor" content="#2E86AB">
+<meta name="msapplication-config" content="{{ '/browserconfig.xml' | relative_url }}">
+
+<!-- Enhanced Open Graph and Twitter Card meta tags -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:creator" content="@zeppelinhome">
+
+<!-- Structured data for better SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}",
+  "logo": "{{ site.url }}/media/zeppelin-logo.png",
+  "description": "{{ site.description }}",
+  "sameAs": [
+    "{{ site.social_links[0].user_url }}"
+  ]
+}
+</script>
+
+<!-- Critical CSS inlined for better performance -->
+<style>
+/* Critical above-the-fold styles */
+.site-header {
+  background: linear-gradient(135deg, #2E86AB, #A23B72, #F18F01);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.site-title {
+  color: white !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Immediate responsive behavior */
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+}
+</style>

@@ -3,11 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeppelin Homepage</title>
+    <title>Zeppelin Home - Revolutionary Smart Home Automation</title>
+    <meta name="description" content="Open-source home automation platform that puts you in complete control of your smart home experience. Privacy-first, community-driven, and designed for everyone.">
+    <meta name="keywords" content="smart home, home automation, IoT, open source, privacy, zeppelin">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Zeppelin Home - Revolutionary Smart Home Automation">
+    <meta property="og:description" content="Open-source home automation platform that puts you in complete control of your smart home experience.">
+    <meta property="og:image" content="/media/zeppelin-logo.png">
+    <meta property="og:url" content="https://hannesmitterer.github.io/zeppelin-/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zeppelin Home - Revolutionary Smart Home Automation">
+    <meta name="twitter:description" content="Open-source home automation platform that puts you in complete control of your smart home experience.">
+    <meta name="twitter:image" content="/media/zeppelin-logo.png">
+    
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2E86AB 0%, #A23B72 50%, #F18F01 100%);
+            min-height: 100vh;
+        }
+        
+        /* Mobile-First Responsive Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(46, 134, 171, 0.95) 0%, rgba(162, 59, 114, 0.95) 50%, rgba(241, 143, 1, 0.95) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="800" cy="300" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="300" cy="700" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="900" cy="800" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: #FFE66D;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #F18F01, #FFE66D);
+            color: #2E86AB;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #2E86AB;
+            transform: translateY(-2px);
+        }
+        
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 4rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2E86AB;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: #2E86AB;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2E86AB, #A23B72);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #FFE66D;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .cta-section {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 0 40px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .hero {
+                padding: 2rem 0;
+            }
+            
+            .logo {
+                max-width: 250px;
+            }
+            
+            .features {
+                padding: 3rem 0;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        
+        /* Loading Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-content > * {
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Zeppelin Project</h1>
-    <p>This is the homepage.</p>
-    <!-- Images and file auto-detection can be implemented here -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="/media/zeppelin-logo.png" alt="Zeppelin Home Logo" class="logo">
+                <h1>Revolutionary Smart Home Automation</h1>
+                <p class="tagline">Open-source platform that puts you in complete control of your smart home experience</p>
+                <div class="cta-section">
+                    <a href="/docs/" class="btn btn-primary">Explore Features</a>
+                    <a href="https://github.com/hannesmitterer/zeppelin-" class="btn btn-secondary" target="_blank" rel="noopener">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Zeppelin Home?</h2>
+                <p class="section-subtitle">Experience the future of home automation with privacy, freedom, and community at its core</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Privacy First</h3>
+                    <p class="feature-description">Your data stays in your home. Complete privacy by design with no data harvesting or cloud dependency.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Open Source</h3>
+                    <p class="feature-description">Community-driven development with transparent processes. No vendor lock-in or artificial limitations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Cross-Platform</h3>
+                    <p class="feature-description">Works seamlessly on mobile, desktop, web, and embedded devices. One platform, everywhere.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Easy to Use</h3>
+                    <p class="feature-description">Intuitive interface designed for everyone. No technical expertise required to get started.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3 class="feature-title">Smart Integration</h3>
+                    <p class="feature-description">Seamless connectivity with 500+ device types and existing home automation systems.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Community Support</h3>
+                    <p class="feature-description">Join thousands of users and contributors building the future of home automation together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/docs/">Documentation</a>
+                <a href="https://github.com/hannesmitterer/zeppelin-" target="_blank" rel="noopener">GitHub</a>
+                <a href="/docs/#press-kit">Press Kit</a>
+                <a href="/docs/#support-our-mission">Support Us</a>
+                <a href="/docs/#join-our-community">Community</a>
+            </div>
+            <p>&copy; 2024 Zeppelin Home Project. Open source and community-driven.</p>
+        </div>
+    </footer>
+
+    <!-- Auto-redirect script for better user experience -->
+    <script>
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading class removal for animations
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Add responsive behavior for mobile menu (if needed later)
+        function toggleMobileMenu() {
+            // Future enhancement for mobile navigation
+        }
+    </script>
 </body>
 </html>
