@@ -34,10 +34,13 @@
   "name": "{{ site.title }}",
   "url": "{{ site.url }}",
   "logo": "{{ site.url }}/media/zeppelin-logo.png",
-  "description": "{{ site.description }}",
+  "description": "{{ site.description }}"{% if site.social_links and site.social_links.size > 0 %},
   "sameAs": [
-    "{{ site.social_links[0].user_url }}"
+    {% for link in site.social_links %}
+      "{{ link.user_url }}"{% if forloop.last == false %},{% endif %}
+    {% endfor %}
   ]
+{% endif %}
 }
 </script>
 
