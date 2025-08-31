@@ -9,6 +9,7 @@ _site/
 
 # Additional Ruby/bundler ignore for when you run: bundle install
 /vendor
+vendor/bundle/
 .bundle/
 
 # Test build directories

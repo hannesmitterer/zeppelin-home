@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 50%, #98FB98 100%);">
+  <defs>
+    <linearGradient id="interiorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f8f8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e8e8e8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d8d8d8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="furnitureGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A0522D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Interior floor -->
+  <path d="M50 200 L350 200 L330 250 L70 250 Z" fill="url(#interiorGrad)" stroke="#c0c0c0"/>
+  
+  <!-- Interior walls -->
+  <path d="M50 100 L350 100 L350 200 L50 200 Z" fill="url(#interiorGrad)" stroke="#c0c0c0"/>
+  
+  <!-- Windows with view -->
+  <rect x="80" y="120" width="60" height="40" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
+  <rect x="160" y="120" width="60" height="40" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
+  <rect x="240" y="120" width="60" height="40" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
+  
+  <!-- Furniture - sofa -->
+  <rect x="100" y="180" width="80" height="25" rx="5" fill="url(#furnitureGrad)"/>
+  <rect x="95" y="175" width="90" height="15" rx="3" fill="#CD853F"/>
+  
+  <!-- Furniture - table -->
+  <ellipse cx="250" cy="190" rx="40" ry="20" fill="#DEB887" stroke="#D2B48C"/>
+  
+  <!-- Decorative plants -->
+  <circle cx="320" cy="180" r="15" fill="#228B22"/>
+  <rect x="315" y="185" width="10" height="20" fill="#8B4513"/>
+  
+  <!-- Ceiling details -->
+  <line x1="50" y1="110" x2="350" y2="110" stroke="#b0b0b0" stroke-width="2"/>
+  <circle cx="120" cy="110" r="8" fill="#FFD700" stroke="#FFA500"/>
+  <circle cx="200" cy="110" r="8" fill="#FFD700" stroke="#FFA500"/>
+  <circle cx="280" cy="110" r="8" fill="#FFD700" stroke="#FFA500"/>
+</svg>

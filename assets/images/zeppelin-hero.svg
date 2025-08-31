@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+  <defs>
+    <linearGradient id="zeppelinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f0f0f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shadowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.05" />
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="30%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="70%" style="stop-color:#ffffff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Cloud background -->
+  <ellipse cx="150" cy="100" rx="80" ry="30" fill="#ffffff" opacity="0.3"/>
+  <ellipse cx="350" cy="80" rx="60" ry="25" fill="#ffffff" opacity="0.2"/>
+  <ellipse cx="600" cy="120" rx="90" ry="35" fill="#ffffff" opacity="0.25"/>
+  
+  <!-- Zeppelin shadow -->
+  <ellipse cx="410" cy="520" rx="200" ry="40" fill="url(#shadowGrad)"/>
+  
+  <!-- Main Zeppelin body (3D effect) -->
+  <ellipse cx="400" cy="300" rx="180" ry="60" fill="url(#zeppelinGrad)" stroke="#d0d0d0" stroke-width="2"/>
+  
+  <!-- Zeppelin gondola -->
+  <rect x="350" y="340" width="100" height="40" rx="10" fill="url(#zeppelinGrad)" stroke="#c0c0c0" stroke-width="1"/>
+  
+  <!-- Windows on gondola -->
+  <rect x="360" y="350" width="15" height="15" rx="2" fill="#87CEEB" stroke="#4682B4" stroke-width="1"/>
+  <rect x="380" y="350" width="15" height="15" rx="2" fill="#87CEEB" stroke="#4682B4" stroke-width="1"/>
+  <rect x="400" y="350" width="15" height="15" rx="2" fill="#87CEEB" stroke="#4682B4" stroke-width="1"/>
+  <rect x="420" y="350" width="15" height="15" rx="2" fill="#87CEEB" stroke="#4682B4" stroke-width="1"/>
+  
+  <!-- Zeppelin fins -->
+  <path d="M580 300 L620 280 L625 300 L620 320 Z" fill="url(#zeppelinGrad)" stroke="#d0d0d0" stroke-width="1"/>
+  <path d="M580 300 L620 250 L625 270 L590 285 Z" fill="url(#zeppelinGrad)" stroke="#d0d0d0" stroke-width="1"/>
+  
+  <!-- Highlight/glow effect -->
+  <ellipse cx="400" cy="280" rx="120" ry="25" fill="url(#glowGrad)"/>
+  
+  <!-- Connection lines -->
+  <line x1="380" y1="340" x2="380" y2="320" stroke="#888" stroke-width="2"/>
+  <line x1="420" y1="340" x2="420" y2="320" stroke="#888" stroke-width="2"/>
+  
+  <!-- Text overlay -->
+  <text x="400" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffffff" opacity="0.9">
+    ZEPPELIN HOME
+  </text>
+  <text x="400" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.8">
+    Floating Luxury Living
+  </text>
+</svg>
