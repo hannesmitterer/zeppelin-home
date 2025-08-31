@@ -13,4 +13,4 @@ This directory contains media assets for the Zeppelin Home promotional site.
 
 All media assets are optimized for web delivery and responsive design. The primary graphics are in SVG format for scalability and performance.
 
-*For promotional materials and press kit assets, see the main site at [https://hannesmitterer.github.io/zeppelin-](https://hannesmitterer.github.io/zeppelin-)*
+*For promotional materials and press kit assets, see the main site at [https://hannesmitterer.github.io/zeppelin-home](https://hannesmitterer.github.io/zeppelin-home)*
