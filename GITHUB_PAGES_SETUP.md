@@ -10,23 +10,39 @@ To complete the setup of the Zeppelin Home documentation website:
 3. Choose "main" branch and "/ (root)" folder
 4. Click "Save"
 
-### 2. Configure Custom Domain (Optional)
-If you want to use a custom domain like `zeppelinhome.com`:
-1. Add a `CNAME` file to the repository root
-2. Enter your domain name in the file
-3. Configure DNS settings at your domain registrar
+### 2. Custom Domain Configuration
+The site includes a `CNAME` file for the custom domain `zeppelinhome.com`. GitHub Pages will automatically detect this and configure the custom domain. 
 
-### 3. Site Structure
+If you want to use the default GitHub Pages URL instead:
+1. Delete the `CNAME` file from the repository root
+2. The site will be available at `https://hannesmitterer.github.io/zeppelin-/`
+
+If using the custom domain, ensure DNS is configured:
+1. Point your domain's DNS A records to GitHub Pages IPs:
+   - `185.199.108.153`
+   - `185.199.109.153` 
+   - `185.199.110.153`
+   - `185.199.111.153`
+2. Or use a CNAME record pointing to `hannesmitterer.github.io`
+
+### 3. Automatic Deployment
+The repository includes a GitHub Actions workflow (`.github/workflows/pages.yml`) that automatically:
+- Builds the Jekyll site when changes are pushed to main branch
+- Deploys to GitHub Pages
+- Uses Ruby 3.2.2 for compatibility
+
+### 4. Site Structure
 - **Homepage**: `docs/index.md` (main documentation)
 - **Configuration**: `_config.yml` (Jekyll/GitHub Pages config)
 - **Media Assets**: `media/` directory (images and graphics)
 - **Theme**: Using Jekyll's "minima" theme for clean presentation
 
-### 4. Expected URL
+### 5. Expected URL
 Once enabled, the site will be available at:
-`https://hannesmitterer.github.io/zeppelin-/`
+- **Custom Domain**: `https://zeppelinhome.com` (configured via CNAME file)
+- **GitHub Pages URL**: `https://hannesmitterer.github.io/zeppelin-/` (if CNAME file is removed)
 
-### 5. Content Overview
+### 6. Content Overview
 The site includes:
 - ✅ Project overview with visual appeal
 - ✅ Enhanced press kit for media coverage
@@ -35,7 +51,7 @@ The site includes:
 - ✅ Privacy-focused legal information
 - ✅ Removed all developer/technical content
 
-### 6. Placeholder Media
+### 7. Placeholder Media
 Media files in `/media/` are currently placeholders. Replace with actual assets:
 - `zeppelin-logo.png` - Main logo/branding
 - `dashboard-preview.png` - Product screenshot
