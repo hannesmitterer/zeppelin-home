@@ -59,12 +59,51 @@ The repository includes helpful scripts in the `scripts/` directory:
 - **`file-manager.sh`**: Content updates and git operations
 - **See [scripts/README.md](scripts/README.md) for detailed usage**
 
-### GitHub Pages Deployment
+### 🌐 GitHub Pages Deployment
 
-The site automatically deploys to GitHub Pages when you push to the `main` branch:
-- **Live Site**: https://hannesmitterer.github.io/zeppelin-home/
-- **Build Status**: Check the Actions tab for deployment status
-- **Deployment Time**: Typically 2-5 minutes after push
+The Zeppelin Home website is automatically deployed to GitHub Pages using GitHub Actions.
+
+#### Live Site
+**🔗 https://hannesmitterer.github.io/zeppelin-home/**
+
+#### How to Deploy
+1. **Automatic Deployment**: Push changes to the `main` branch
+2. **Manual Deployment**: Go to Actions tab → "Deploy to GitHub Pages" → "Run workflow"
+3. **Build Status**: Check the Actions tab for deployment status
+4. **Deployment Time**: Typically 2-5 minutes after push
+
+#### Setup Instructions
+To enable GitHub Pages for this repository:
+1. Go to **Repository Settings → Pages**
+2. Set **Source** to **"GitHub Actions"** (not "Deploy from a branch")
+3. The workflow will automatically deploy when changes are pushed to main
+
+#### Local Development
+```bash
+# Install dependencies
+bundle install
+
+# Start development server
+bundle exec jekyll serve
+
+# Site will be available at http://localhost:4000
+```
+
+#### Custom Domain (Optional)
+To use a custom domain like `zeppelinhome.com`:
+1. Add a `CNAME` file to the repository root containing your domain name
+2. Configure DNS settings at your domain registrar:
+   - Add a CNAME record pointing to `hannesmitterer.github.io`
+   - Or use A records pointing to GitHub Pages IP addresses
+3. Update the `url` setting in `_config.yml` to match your custom domain
+4. GitHub Pages will automatically handle HTTPS certificates
+
+#### Deployment Workflow
+The site uses `.github/workflows/pages.yml` which:
+- Triggers on push to `main` branch
+- Builds the Jekyll site with GitHub Pages compatibility
+- Deploys to the `gh-pages` branch automatically
+- Serves the site at https://hannesmitterer.github.io/zeppelin-home/
 
 ## 📄 License
 
