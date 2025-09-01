@@ -53,6 +53,8 @@ exclude:
   - vendor/ruby/
   - .github/
   - GITHUB_PAGES_SETUP.md
+  - GITHUB_PAGES_READY.md
+  - CUSTOM_DOMAIN.md
   - .bundle/
   - .github-pages-cache/
 
