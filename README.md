@@ -12,12 +12,15 @@ Welcome to Zeppelin Home - an open-source smart home automation platform that pu
 
 **[Visit the Zeppelin Home Website →](https://hannesmitterer.github.io/zeppelin-home/)**
 
-Our GitHub Pages site showcases:
-- Product overview and key features
-- Press kit and media resources  
-- Crowdfunding campaign information
-- Community resources and support
-- Privacy-focused approach to smart homes
+Our redesigned website showcases:
+- **Clear project introduction** - What Zeppelin Home really is (smart home automation platform)
+- **Accessibility-focused design** - Works for everyone, including non-developers
+- **Rich media support** - Interactive video demos and device showcase
+- **Mobile-responsive layout** - Perfect experience on all devices
+- **Community highlights** - Join our growing community of contributors
+- **Easy contact options** - Multiple ways to get involved and get support
+
+The website is built with accessibility best practices including semantic HTML, keyboard navigation, sufficient color contrast, and screen reader compatibility.
 
 ## 🚀 Key Features
 

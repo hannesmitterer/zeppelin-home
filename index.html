@@ -2,202 +2,748 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Zeppelin Home - Luxury Floating Residence</title>
-  <meta name="description" content="Experience revolutionary living above the ordinary. Zeppelin Home combines aviation excellence with luxury residential design.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeppelin Home - Smart Home Automation Platform</title>
+  <meta name="description" content="Revolutionary open-source smart home automation platform. 500+ device types, privacy-first design, community-driven. Your data stays in your home.">
+  <meta name="keywords" content="smart home, home automation, open source, privacy, IoT, smart devices">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #243b5a;
-      --secondary: #f5f6fa;
-      --accent: #1abc9c;
-      --gold: #e1c16e;
-      --text: #333;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #64748b;
+      --accent: #10b981;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     }
-    body {
-      background: var(--secondary);
-      color: var(--text);
+
+    * {
       margin: 0;
-      font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-secondary);
     }
-    header {
-      background: linear-gradient(90deg, var(--primary), #6986b7);
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--primary);
       color: white;
-      padding: 2.5rem 1rem 1.5rem 1rem;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 6px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 3rem 1rem;
       text-align: center;
+      position: relative;
     }
-    header h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      margin: 0.5rem 0;
-      letter-spacing: 2px;
-    }
-    header h2 {
-      font-size: 1.25rem;
-      font-weight: 400;
-      margin: 0.5rem 0 0 0;
-    }
-    header .tagline {
-      font-size: 1rem;
-      margin-top: 1rem;
-      color: var(--gold);
+
+    .hero-content h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 700;
-      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      line-height: 1.2;
     }
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 24px rgba(36,59,90,0.08);
-      padding: 2rem 1.5rem;
+
+    .hero-content .subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
     }
-    section h3 {
-      color: var(--primary);
-      font-size: 1.3rem;
-      margin-top: 0;
-      margin-bottom: 0.75rem;
-      font-family: 'Montserrat', sans-serif;
+
+    .hero-content .description {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0.85;
     }
-    .feature {
-      margin-bottom: 2.5rem;
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
     }
-    .feature:last-child {
-      margin-bottom: 0;
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
     }
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-      display: inline-block;
+
+    .btn-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
-    ul.benefits {
-      padding-left: 1.2em;
-      margin: 0.5em 0 1.5em 0;
+
+    .btn-primary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
     }
-    ul.benefits li {
-      margin-bottom: 0.5em;
-    }
-    .cta {
-      text-align: center;
-      margin-top: 2.5rem;
-    }
-    .cta button, .cta a.learn-more {
+
+    .btn-secondary {
       background: var(--accent);
       color: white;
-      border: none;
-      padding: 0.75rem 2rem;
-      font-size: 1.1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      font-family: 'Montserrat', sans-serif;
-      margin: 0.5rem 0.25rem;
-      transition: background 0.2s;
-      text-decoration: none;
-      display: inline-block;
     }
-    .cta button:hover, .cta a.learn-more:hover {
-      background: var(--primary);
+
+    .btn-secondary:hover {
+      background: #059669;
+      transform: translateY(-1px);
     }
-    footer {
+
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .section {
+      margin: 4rem 0;
+      background: var(--bg-primary);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .section-header {
       text-align: center;
-      padding: 2rem 1rem 1rem 1rem;
-      font-size: 1rem;
-      color: var(--primary);
-      background: var(--secondary);
+      margin-bottom: 3rem;
     }
-    footer small {
+
+    .section-header h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Hero image */
+    .hero-image {
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-image .placeholder {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      height: 300px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .feature-card {
+      background: var(--bg-primary);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
       display: block;
-      margin-bottom: 0.5rem;
     }
-    @media (max-width: 600px) {
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Video section */
+    .video-container {
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .video-wrapper {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .video-placeholder {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 3px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .play-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .play-button::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 20px solid white;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 4px;
+    }
+
+    /* Community section */
+    .community-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--bg-primary);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+
+    /* Contact section */
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+    }
+
+    .contact-link:hover {
+      background: var(--bg-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .contact-text h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-text p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-primary);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      .section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .community-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-links {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
       header {
-        padding: 1.5rem 0.5rem 1rem 0.5rem;
+        padding: 2rem 1rem;
       }
-      section {
-        padding: 1.5rem 0.5rem;
+
+      .section {
+        padding: 1.5rem 1rem;
       }
-      h1 {
-        font-size: 1.5rem;
+
+      .community-stats {
+        grid-template-columns: 1fr;
       }
-      h3 {
-        font-size: 1.1rem;
+    }
+
+    /* Focus styles for accessibility */
+    .btn:focus,
+    .contact-link:focus,
+    .skip-link:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      :root {
+        --border: #000000;
+        --text-secondary: #000000;
       }
-      .feature-icon {
-        font-size: 2rem;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Zeppelin Home</h1>
-    <h2>Luxury Floating Residence</h2>
-    <div class="tagline">Experience revolutionary living that rises above the ordinary</div>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <header role="banner">
+    <div class="hero-content">
+      <h1>Zeppelin Home</h1>
+      <p class="subtitle">Revolutionary Smart Home Automation Platform</p>
+      <p class="description">
+        Open-source, privacy-first home automation that puts you in control. 
+        Connect 500+ device types, keep your data local, and join a thriving community building the future of smart homes.
+      </p>
+      <div class="hero-cta">
+        <a href="#features" class="btn btn-primary" aria-label="Learn about Zeppelin Home features">
+          🚀 Explore Features
+        </a>
+        <a href="#community" class="btn btn-secondary" aria-label="Join the Zeppelin Home community">
+          💬 Join Community
+        </a>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <div class="feature">
-      <div class="feature-icon">🪁</div>
-      <h3>Revolutionary Living Experience</h3>
-      <p>Discover how Zeppelin Home transforms the concept of modern living through innovative floating architecture and sustainable design.</p>
-      <ul class="benefits">
-        <li>Floating residence design inspired by aviation excellence</li>
-        <li>Sustainable materials and energy systems</li>
-        <li>Panoramic views and ultimate privacy</li>
-      </ul>
+  <main id="main" role="main">
+    <div class="hero-image">
+      <div class="placeholder" role="img" aria-label="Zeppelin Home smart home dashboard showing connected devices and automation controls">
+        📱 Smart Home Dashboard Preview
+        <br><small>(Dashboard screenshot placeholder)</small>
+      </div>
     </div>
-    <div class="feature">
-      <div class="feature-icon">🛋️</div>
-      <h3>Luxury Interior Design</h3>
-      <p>Step into a world of refined elegance with premium materials, panoramic windows offering 360° views, and smart home technology that adapts to your lifestyle.</p>
-      <ul class="benefits">
-        <li>Curated interiors with the highest standards of comfort</li>
-        <li>Smart living spaces and adaptive lighting</li>
-        <li>Effortless floating above the world</li>
-      </ul>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">⚡</div>
-      <h3>Advanced Propulsion System</h3>
-      <p>Our electric propulsion ensures whisper-quiet operation and zero-emission travel. GPS-guided auto-pilot, weather adaptation, and renewable energy integration make every journey an adventure in luxury.</p>
-      <ul class="benefits">
-        <li>Zero-emission, sustainable travel</li>
-        <li>Auto-pilot navigation and weather adaptation</li>
-        <li>Renewable energy powered mobility</li>
-      </ul>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🌍</div>
-      <h3>Ultimate Mobility & Freedom</h3>
-      <p>Break free from traditional real estate constraints. Zeppelin Home adapts to any climate and location, from urban skylines to remote wonders. International airspace integration turns the world into your neighborhood.</p>
-      <ul class="benefits">
-        <li>Cross-platform landing and compatibility</li>
-        <li>Adaptable to any climate or location</li>
-        <li>International airspace integration</li>
-      </ul>
-    </div>
-    <div class="cta">
-      <a href="#contact" class="learn-more">Learn More</a>
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Schedule Preview Flight</button>
-    </div>
-  </section>
 
-  <section id="contact">
-    <h3>Contact Us</h3>
-    <p>Ready to elevate your living? Schedule your exclusive preview flight and experience Zeppelin Home.</p>
-    <form style="max-width:400px;margin:auto;">
-      <input type="text" placeholder="Your Name" required style="width:100%;padding:0.8em;margin:0.5em 0;border-radius:8px;border:1px solid #ccc;">
-      <input type="email" placeholder="Your Email" required style="width:100%;padding:0.8em;margin:0.5em 0;border-radius:8px;border:1px solid #ccc;">
-      <textarea rows="3" placeholder="Message" style="width:100%;padding:0.8em;margin:0.5em 0;border-radius:8px;border:1px solid #ccc;"></textarea>
-      <button type="submit" style="width:100%;margin:0.5em 0;">Send Inquiry</button>
-    </form>
-  </section>
+    <section id="features" class="section" aria-labelledby="features-heading">
+      <div class="section-header">
+        <h2 id="features-heading">Why Choose Zeppelin Home?</h2>
+        <p>Built for everyone - from tech enthusiasts to families who just want their home to work better.</p>
+      </div>
 
-  <footer>
-    <small>© 2024 Zeppelin Home. Elevating the future of residential living.</small>
-    <span>Contact us to schedule your exclusive preview flight.</span>
+      <div class="features-grid">
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🔗</span>
+          <h3>Smart Integration</h3>
+          <p>Connect and control 500+ different smart device types seamlessly. From lights and locks to thermostats and cameras.</p>
+          <ul class="feature-list">
+            <li>Works with existing devices</li>
+            <li>No vendor lock-in</li>
+            <li>Easy setup wizard</li>
+            <li>Automatic device discovery</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🔒</span>
+          <h3>Privacy First</h3>
+          <p>Your data stays in your home, period. No cloud dependencies, no data harvesting, complete privacy by design.</p>
+          <ul class="feature-list">
+            <li>Local data processing</li>
+            <li>No external servers required</li>
+            <li>Encrypted communications</li>
+            <li>Full data ownership</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🌍</span>
+          <h3>Open Source</h3>
+          <p>Transparent, community-driven development. See exactly how it works, contribute improvements, and never worry about vendor shutdown.</p>
+          <ul class="feature-list">
+            <li>GPL v3 licensed</li>
+            <li>Active community development</li>
+            <li>Regular security audits</li>
+            <li>No artificial limitations</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">📱</span>
+          <h3>Cross-Platform</h3>
+          <p>Access your smart home from any device - mobile, desktop, web, or voice assistants. Works everywhere you need it.</p>
+          <ul class="feature-list">
+            <li>iOS & Android apps</li>
+            <li>Web dashboard</li>
+            <li>Desktop applications</li>
+            <li>Voice control integration</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">💰</span>
+          <h3>No Subscriptions</h3>
+          <p>Pay once, own forever. No monthly fees, no premium tiers, no artificial feature restrictions. Just smart home automation that works.</p>
+          <ul class="feature-list">
+            <li>One-time purchase</li>
+            <li>All features included</li>
+            <li>Lifetime updates</li>
+            <li>No hidden costs</li>
+          </ul>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">⚡</span>
+          <h3>Easy to Use</h3>
+          <p>Designed for real people, not just developers. Intuitive interface, step-by-step guides, and helpful community support.</p>
+          <ul class="feature-list">
+            <li>Intuitive dashboard</li>
+            <li>Visual automation editor</li>
+            <li>Comprehensive documentation</li>
+            <li>Community support</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="demo-heading">
+      <div class="section-header">
+        <h2 id="demo-heading">See Zeppelin Home in Action</h2>
+        <p>Watch how easy it is to set up and control your smart home with Zeppelin Home.</p>
+      </div>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <div class="video-placeholder" role="img" aria-label="Zeppelin Home product demo video showing setup and features">
+            <div class="play-button" tabindex="0" role="button" aria-label="Play demo video"></div>
+            <p>Product Demo Video</p>
+            <small>(Video placeholder - shows device setup, dashboard usage, and automation creation)</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="community" class="section" aria-labelledby="community-heading">
+      <div class="section-header">
+        <h2 id="community-heading">Join Our Growing Community</h2>
+        <p>Thousands of users and contributors are building the future of smart homes together.</p>
+      </div>
+
+      <div class="community-stats">
+        <div class="stat-card">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Device Types Supported</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">1,000+</span>
+          <span class="stat-label">Community Contributors</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">10,000+</span>
+          <span class="stat-label">Active Installations</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Community Support</span>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="https://discord.gg/zeppelinhome" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Join Discord community (opens in new window)">
+          💬 Join Discord Community
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <div class="section-header">
+        <h2 id="contact-heading">Get Started or Get in Touch</h2>
+        <p>Ready to revolutionize your home? Multiple ways to connect with us and get started.</p>
+      </div>
+
+      <div class="contact-content">
+        <div class="contact-links">
+          <a href="https://hannesmitterer.github.io/zeppelin-home/#support-our-mission" class="contact-link" aria-label="Support the crowdfunding campaign">
+            <span class="contact-icon" aria-hidden="true">💰</span>
+            <div class="contact-text">
+              <h3>Support Our Mission</h3>
+              <p>Back our crowdfunding campaign</p>
+            </div>
+          </a>
+
+          <a href="https://hannesmitterer.github.io/zeppelin-home/#press-kit" class="contact-link" aria-label="Access press kit and media resources">
+            <span class="contact-icon" aria-hidden="true">📰</span>
+            <div class="contact-text">
+              <h3>Press & Media</h3>
+              <p>Press kit and media resources</p>
+            </div>
+          </a>
+
+          <a href="mailto:hello@zeppelinhome.com" class="contact-link" aria-label="Send email to hello@zeppelinhome.com">
+            <span class="contact-icon" aria-hidden="true">📧</span>
+            <div class="contact-text">
+              <h3>General Questions</h3>
+              <p>hello@zeppelinhome.com</p>
+            </div>
+          </a>
+
+          <a href="mailto:press@zeppelinhome.com" class="contact-link" aria-label="Send email to press@zeppelinhome.com">
+            <span class="contact-icon" aria-hidden="true">📞</span>
+            <div class="contact-text">
+              <h3>Media Inquiries</h3>
+              <p>press@zeppelinhome.com</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2025 Zeppelin Home Project. Building the future of smart homes together.</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://github.com/hannesmitterer/zeppelin-home" target="_blank" rel="noopener noreferrer" aria-label="View source code on GitHub (opens in new window)">GitHub</a>
+      <a href="/LICENSE" aria-label="View GPL v3 license">License</a>
+      <a href="mailto:press@zeppelinhome.com" aria-label="Contact press team">Press</a>
+      <a href="https://discord.gg/zeppelinhome" target="_blank" rel="noopener noreferrer" aria-label="Join Discord community (opens in new window)">Community</a>
+    </nav>
+    <p><small>Built with ❤️ by the open source community</small></p>
   </footer>
+
+  <script>
+    // Simple keyboard navigation for the play button
+    document.addEventListener('DOMContentLoaded', function() {
+      const playButton = document.querySelector('.play-button');
+      if (playButton) {
+        playButton.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            // In a real implementation, this would launch the video
+            alert('Demo video would play here. This is a placeholder for the actual video player.');
+          }
+        });
+        
+        playButton.addEventListener('click', function() {
+          // In a real implementation, this would launch the video
+          alert('Demo video would play here. This is a placeholder for the actual video player.');
+        });
+      }
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            // Focus the target for screen readers
+            target.focus();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

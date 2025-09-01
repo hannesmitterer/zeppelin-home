@@ -1,0 +1,18 @@
+# Development assets and temporary files
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# Raw/source files (keep processed versions only)
+*.psd
+*.ai
+*.sketch
+*.figma
+*.xcf
+
+# Large uncompressed files
+*.tiff
+*.bmp
+*.raw
