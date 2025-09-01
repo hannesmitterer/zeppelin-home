@@ -59,6 +59,17 @@
         .btn:hover {
             background: #45a049;
         }
+        /* Added video styling for hero section */
+        .hero-media {
+            margin-bottom: 30px;
+        }
+        .hero-media video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+            background: #000;
+        }
     </style>
     <script>
         // Automatic redirect after 3 seconds if meta refresh doesn't work
@@ -68,16 +79,29 @@
     </script>
 </head>
 <body>
+    <!-- Hero Section Start -->
+    <div class="hero-media">
+      <video 
+        src="https://ai.invideo.io/workspace/f405b0d3-c0e8-4e83-9cf5-ce5eaaa761d4/v40-copilot/e5a46008-c601-4747-8438-7a951ac5fce7" 
+        controls 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        poster="media/zeppelin-home-hero-poster.png"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <!-- Hero Section End -->
     <div class="container">
         <h1>🚀 Zeppelin Home</h1>
         <p>Revolutionary Smart Home Automation Platform</p>
-        
         <div class="redirect-message">
             <p>Redirecting to main site...</p>
             <p>If you're not automatically redirected, click below:</p>
             <a href="./docs/" class="btn">Enter Zeppelin Home →</a>
         </div>
-        
         <p><small>Open source • Community-driven • Privacy-focused</small></p>
     </div>
 </body>
