@@ -89,7 +89,7 @@ When you push to the `main` branch, GitHub Actions automatically:
 
 1. **Builds** the Jekyll site with all dependencies
 2. **Tests** the build process for errors
-3. **Deploys** to GitHub Pages at https://hannesmitterer.github.io/zeppelin-/
+3. **Deploys** to GitHub Pages at https://hannesmitterer.github.io/zeppelin-home/
 
 The deployment typically takes 2-5 minutes to complete.
 
