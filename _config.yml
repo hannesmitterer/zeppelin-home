@@ -1,37 +1,47 @@
-# Zeppelin Home - GitHub Pages Configuration
+# Zeppelin Home - Optimized GitHub Pages Configuration
 title: "Zeppelin Home"
 description: "Revolutionary home automation platform - Open source, community-driven smart home solutions"
 baseurl: ""
-url: "https://hannesmitterer.github.io/zeppelin-"
+url: "https://hannesmitterer.github.io/zeppelin-home"
 
 # GitHub Pages settings
-repository: hannesmitterer/zeppelin-
+repository: hannesmitterer/zeppelin-home
 github_username: hannesmitterer
 
-# Jekyll theme
+# Jekyll theme - optimized for GitHub Pages
 theme: minima
 
 # Navigation
 header_pages:
   - docs/index.md
 
-# SEO and social
+# SEO and social optimization
 author:
   name: "Zeppelin Home Project"
   email: "press@zeppelinhome.com"
 
 social_links:
-  - { platform: github, user_url: "https://github.com/hannesmitterer/zeppelin-" }
+  - { platform: github, user_url: "https://github.com/hannesmitterer/zeppelin-home" }
 
-# Plugins
+# Essential plugins for performance and SEO
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# Markdown settings
+# Markdown settings - optimized for performance
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  toc_levels: 1..3
+
+# Performance optimizations
+sass:
+  style: compressed
+  sourcemap: never
 
 # Collections
 collections:
@@ -39,7 +49,7 @@ collections:
     output: true
     permalink: /:name/
 
-# Exclude from processing
+# Exclude from processing - comprehensive list for faster builds
 exclude:
   - .gitignore
   - LICENSE
@@ -55,8 +65,22 @@ exclude:
   - GITHUB_PAGES_SETUP.md
   - .bundle/
   - .github-pages-cache/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
+  - scripts/
+  - "*.tmp"
+  - "*.bak"
 
 # Include directories that might be ignored by default
 include:
   - .htaccess
   - _pages
+
+# Compression and optimization
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  ignore:
+    envs: development

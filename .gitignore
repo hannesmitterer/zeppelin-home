@@ -1,18 +1,25 @@
-# This .gitignore is appropriate for repositories deployed to GitHub Pages and using
-# a Gemfile as specified at https://github.com/github/pages-gem#conventional
+# Optimized .gitignore for GitHub Pages Jekyll deployment
 
-# Basic Jekyll gitignores (synchronize to Jekyll.gitignore)
+# Jekyll build artifacts
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 
-# Additional Ruby/bundler ignore for when you run: bundle install
+# Ruby/bundler artifacts
 /vendor
 .bundle/
 
 # Test build directories
 _test_site/
+
+# Cache and temporary files
+.github-pages-cache/
+*.tmp
+*.bak
+
+# Performance profiling files
+.jekyll-profile/
 
 # OS and editor files
 .DS_Store
@@ -21,5 +28,18 @@ Thumbs.db
 *.swo
 *~
 
-# GitHub Pages build artifacts
-.github-pages-cache/
+# Python cache (for build tools)
+__pycache__/
+*.pyc
+
+# Node.js (if used for additional tooling)
+node_modules/
+npm-debug.log*
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log

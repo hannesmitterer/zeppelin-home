@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Optimized GitHub Pages Deployment
 
 on:
   push:
@@ -20,29 +20,61 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
+  # Optimized build job
   build:
     runs-on: ubuntu-latest
+    env:
+      JEKYLL_ENV: production
+      BUNDLE_WITHOUT: development
     steps:
-      - name: Checkout
+      - name: Checkout with full history
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better caching
 
-      - name: Setup Ruby
+      - name: Setup Ruby with enhanced caching
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
           bundler-cache: true
 
-      - name: Setup Pages
+      - name: Setup Pages configuration
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      - name: Cache Jekyll build
+        uses: actions/cache@v4
+        with:
+          path: |
+            .jekyll-cache
+            .sass-cache
+          key: jekyll-build-${{ runner.os }}-${{ hashFiles('**/*.rb', '**/*.yml', '**/*.yaml', 'Gemfile*') }}
+          restore-keys: |
+            jekyll-build-${{ runner.os }}-
+
+      - name: Build with Jekyll (optimized)
+        run: |
+          # Build with production optimizations
+          bundle exec jekyll build \
+            --baseurl "${{ steps.pages.outputs.base_path }}" \
+            --profile \
+            --strict_front_matter
         env:
           JEKYLL_ENV: production
 
-      - name: Upload artifact
+      - name: Optimize assets
+        run: |
+          # Compress images if tools are available
+          if command -v optipng &> /dev/null; then
+            find _site -name "*.png" -exec optipng -quiet {} \;
+          fi
+          
+          # Show build statistics
+          echo "Built site statistics:"
+          du -sh _site
+          find _site -type f | wc -l | xargs echo "Total files:"
+
+      - name: Upload optimized artifact
         uses: actions/upload-pages-artifact@v3
 
   # Deployment job - only run on push to main, not on PRs
@@ -57,3 +89,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Post-deployment notification
+        if: success()
+        run: |
+          echo "✅ Site successfully deployed to: ${{ steps.deployment.outputs.page_url }}"
