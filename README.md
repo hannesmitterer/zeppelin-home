@@ -2,7 +2,7 @@
 
 🏠 **Revolutionary Smart Home Automation Platform**
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Site-brightgreen)](https://hannesmitterer.github.io/zeppelin-/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Site-brightgreen)](https://hannesmitterer.github.io/zeppelin-home/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 [![Community](https://img.shields.io/badge/Community-Join%20Discord-7289da)](https://discord.gg/zeppelinhome)
 
@@ -10,7 +10,7 @@ Welcome to Zeppelin Home - an open-source smart home automation platform that pu
 
 ## 🌐 Visit Our Website
 
-**[Visit the Zeppelin Home Website →](https://hannesmitterer.github.io/zeppelin-/)**
+**[Visit the Zeppelin Home Website →](https://hannesmitterer.github.io/zeppelin-home/)**
 
 Our GitHub Pages site showcases:
 - Product overview and key features
@@ -30,8 +30,8 @@ Our GitHub Pages site showcases:
 ## 🤝 Get Involved
 
 - **💬 [Join our Discord Community](https://discord.gg/zeppelinhome)**
-- **💰 [Support our Crowdfunding Campaign](https://hannesmitterer.github.io/zeppelin-/#support-our-mission)**
-- **📰 [Media & Press Kit](https://hannesmitterer.github.io/zeppelin-/#press-kit)**
+- **💰 [Support our Crowdfunding Campaign](https://hannesmitterer.github.io/zeppelin-home/#support-our-mission)**
+- **📰 [Media & Press Kit](https://hannesmitterer.github.io/zeppelin-home/#press-kit)**
 
 ## 🛠️ Development & Deployment
 
@@ -62,7 +62,7 @@ The repository includes helpful scripts in the `scripts/` directory:
 ### GitHub Pages Deployment
 
 The site automatically deploys to GitHub Pages when you push to the `main` branch:
-- **Live Site**: https://hannesmitterer.github.io/zeppelin-/
+- **Live Site**: https://hannesmitterer.github.io/zeppelin-home/
 - **Build Status**: Check the Actions tab for deployment status
 - **Deployment Time**: Typically 2-5 minutes after push
 
