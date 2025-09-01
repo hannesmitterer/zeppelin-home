@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Zeppelin Home - Luxury Floating Residence</title>
+  <meta name="description" content="Experience revolutionary living above the ordinary. Zeppelin Home combines aviation excellence with luxury residential design.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #243b5a;
+      --secondary: #f5f6fa;
+      --accent: #1abc9c;
+      --gold: #e1c16e;
+      --text: #333;
+    }
+    body {
+      background: var(--secondary);
+      color: var(--text);
+      margin: 0;
+      font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, var(--primary), #6986b7);
+      color: white;
+      padding: 2.5rem 1rem 1.5rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      margin: 0.5rem 0;
+      letter-spacing: 2px;
+    }
+    header h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0.5rem 0 0 0;
+    }
+    header .tagline {
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    section {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 24px rgba(36,59,90,0.08);
+      padding: 2rem 1.5rem;
+    }
+    section h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .feature {
+      margin-bottom: 2.5rem;
+    }
+    .feature:last-child {
+      margin-bottom: 0;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      display: inline-block;
+    }
+    ul.benefits {
+      padding-left: 1.2em;
+      margin: 0.5em 0 1.5em 0;
+    }
+    ul.benefits li {
+      margin-bottom: 0.5em;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .cta button, .cta a.learn-more {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0.5rem 0.25rem;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .cta button:hover, .cta a.learn-more:hover {
+      background: var(--primary);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      font-size: 1rem;
+      color: var(--primary);
+      background: var(--secondary);
+    }
+    footer small {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 600px) {
+      header {
+        padding: 1.5rem 0.5rem 1rem 0.5rem;
+      }
+      section {
+        padding: 1.5rem 0.5rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+      }
+      .feature-icon {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Zeppelin Home</h1>
+    <h2>Luxury Floating Residence</h2>
+    <div class="tagline">Experience revolutionary living that rises above the ordinary</div>
+  </header>
+
+  <section>
+    <div class="feature">
+      <div class="feature-icon">🪁</div>
+      <h3>Revolutionary Living Experience</h3>
+      <p>Discover how Zeppelin Home transforms the concept of modern living through innovative floating architecture and sustainable design.</p>
+      <ul class="benefits">
+        <li>Floating residence design inspired by aviation excellence</li>
+        <li>Sustainable materials and energy systems</li>
+        <li>Panoramic views and ultimate privacy</li>
+      </ul>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🛋️</div>
+      <h3>Luxury Interior Design</h3>
+      <p>Step into a world of refined elegance with premium materials, panoramic windows offering 360° views, and smart home technology that adapts to your lifestyle.</p>
+      <ul class="benefits">
+        <li>Curated interiors with the highest standards of comfort</li>
+        <li>Smart living spaces and adaptive lighting</li>
+        <li>Effortless floating above the world</li>
+      </ul>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⚡</div>
+      <h3>Advanced Propulsion System</h3>
+      <p>Our electric propulsion ensures whisper-quiet operation and zero-emission travel. GPS-guided auto-pilot, weather adaptation, and renewable energy integration make every journey an adventure in luxury.</p>
+      <ul class="benefits">
+        <li>Zero-emission, sustainable travel</li>
+        <li>Auto-pilot navigation and weather adaptation</li>
+        <li>Renewable energy powered mobility</li>
+      </ul>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🌍</div>
+      <h3>Ultimate Mobility & Freedom</h3>
+      <p>Break free from traditional real estate constraints. Zeppelin Home adapts to any climate and location, from urban skylines to remote wonders. International airspace integration turns the world into your neighborhood.</p>
+      <ul class="benefits">
+        <li>Cross-platform landing and compatibility</li>
+        <li>Adaptable to any climate or location</li>
+        <li>International airspace integration</li>
+      </ul>
+    </div>
+    <div class="cta">
+      <a href="#contact" class="learn-more">Learn More</a>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">Schedule Preview Flight</button>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <p>Ready to elevate your living? Schedule your exclusive preview flight and experience Zeppelin Home.</p>
+    <form style="max-width:400px;margin:auto;">
+      <input type="text" placeholder="Your Name" required style="width:100%;padding:0.8em;margin:0.5em 0;border-radius:8px;border:1px solid #ccc;">
+      <input type="email" placeholder="Your Email" required style="width:100%;padding:0.8em;margin:0.5em 0;border-radius:8px;border:1px solid #ccc;">
+      <textarea rows="3" placeholder="Message" style="width:100%;padding:0.8em;margin:0.5em 0;border-radius:8px;border:1px solid #ccc;"></textarea>
+      <button type="submit" style="width:100%;margin:0.5em 0;">Send Inquiry</button>
+    </form>
+  </section>
+
+  <footer>
+    <small>© 2024 Zeppelin Home. Elevating the future of residential living.</small>
+    <span>Contact us to schedule your exclusive preview flight.</span>
+  </footer>
+</body>
+</html>
