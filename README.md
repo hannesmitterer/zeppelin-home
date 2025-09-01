@@ -13,11 +13,11 @@ Welcome to Zeppelin Home - an open-source smart home automation platform that pu
 **[Visit the Zeppelin Home Website →](https://hannesmitterer.github.io/zeppelin-home/)**
 
 Our GitHub Pages site showcases:
-- Product overview and key features
-- Press kit and media resources  
-- Crowdfunding campaign information
-- Community resources and support
-- Privacy-focused approach to smart homes
+- **Modern Visual Gallery**: Experience Zeppelin Home in different environments (urban, nature, waterfront, mountains)
+- **Luxury vs Economy Comparison**: Clear distinction between Zeppelin Home Luxe ($2.5M) and Essential ($750K) versions
+- **Responsive Design**: Optimized for desktop and mobile viewing
+- **Interactive Elements**: Smooth navigation and engaging user experience
+- **High-Quality Imagery**: Professional placeholder images demonstrating various scenarios
 
 ## 🚀 Key Features
 
