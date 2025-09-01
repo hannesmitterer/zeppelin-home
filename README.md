@@ -1,4 +1,4 @@
-# Zeppelin Home 
+# Zeppelin Home and Zeppelin House
 
 🏠 **Revolutionary Smart Home Automation Platform**
 
