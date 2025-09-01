@@ -85,7 +85,7 @@ Zeppelin Home represents the next generation of home automation platforms, combi
 
 ### 🎨 Media Assets
 
-High-resolution logos, screenshots, and promotional materials are available in our [media kit repository](https://github.com/hannesmitterer/zeppelin-/tree/main/media).
+High-resolution logos, screenshots, and promotional materials are available in our [media kit repository](https://github.com/hannesmitterer/zeppelin-home/tree/main/media).
 
 **Available assets:**
 - Logos (PNG, SVG, various sizes)

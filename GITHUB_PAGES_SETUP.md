@@ -25,7 +25,7 @@ If you want to use a custom domain like `zeppelinhome.com`:
 
 ### 4. Expected URL
 Once enabled, the site will be available at:
-`https://hannesmitterer.github.io/zeppelin-/`
+`https://hannesmitterer.github.io/zeppelin-home/`
 
 ### 5. Content Overview
 The site includes:

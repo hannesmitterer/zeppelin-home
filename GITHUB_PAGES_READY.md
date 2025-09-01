@@ -15,7 +15,7 @@ The Zeppelin Home repository is now fully configured and ready for GitHub Pages 
 ### 🌐 Site Structure
 
 ```
-Repository Root (https://hannesmitterer.github.io/zeppelin-/)
+Repository Root (https://hannesmitterer.github.io/zeppelin-home/)
 ├── index.html                    # Root page (redirects to /docs/)
 ├── docs/index.html              # Main content page
 ├── media/                       # Media assets directory
@@ -25,11 +25,11 @@ Repository Root (https://hannesmitterer.github.io/zeppelin-/)
 
 ### 🚀 Expected URLs
 
-- **Homepage**: https://hannesmitterer.github.io/zeppelin-/
-- **Main Content**: https://hannesmitterer.github.io/zeppelin-/docs/
-- **Media Assets**: https://hannesmitterer.github.io/zeppelin-/media/
-- **RSS Feed**: https://hannesmitterer.github.io/zeppelin-/feed.xml
-- **Sitemap**: https://hannesmitterer.github.io/zeppelin-/sitemap.xml
+- **Homepage**: https://hannesmitterer.github.io/zeppelin-home/
+- **Main Content**: https://hannesmitterer.github.io/zeppelin-home/docs/
+- **Media Assets**: https://hannesmitterer.github.io/zeppelin-home/media/
+- **RSS Feed**: https://hannesmitterer.github.io/zeppelin-home/feed.xml
+- **Sitemap**: https://hannesmitterer.github.io/zeppelin-home/sitemap.xml
 
 ### ⚙️ GitHub Pages Settings Required
 
@@ -62,6 +62,6 @@ To complete the setup, the repository owner needs to:
 1. **Merge this PR** to main branch
 2. **Enable GitHub Pages** in repository settings
 3. **Wait for first deployment** (usually 2-5 minutes)
-4. **Visit the live site** at https://hannesmitterer.github.io/zeppelin-/
+4. **Visit the live site** at https://hannesmitterer.github.io/zeppelin-home/
 
 The site is now production-ready and will automatically deploy whenever changes are pushed to the main branch!
