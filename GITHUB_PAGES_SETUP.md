@@ -11,23 +11,17 @@ To complete the setup of the Zeppelin Home documentation website:
 
 **Note**: With the new GitHub Actions workflow, GitHub Pages will automatically deploy from the `gh-pages` branch when changes are pushed to the `main` branch. No manual configuration of branch/folder is needed.
 
-### 2. Configure Custom Domain (Optional)
-If you want to use a custom domain like `zeppelinhome.com`:
-1. Add a `CNAME` file to the repository root
-2. Enter your domain name in the file
-3. Configure DNS settings at your domain registrar
-
-### 3. Site Structure
+### 2. Site Structure
 - **Homepage**: `docs/index.md` (main documentation)
 - **Configuration**: `_config.yml` (Jekyll/GitHub Pages config)
 - **Media Assets**: `media/` directory (images and graphics)
 - **Theme**: Using Jekyll's "minima" theme for clean presentation
 
-### 4. Expected URL
+### 3. Expected URL
 Once enabled, the site will be available at:
 `https://hannesmitterer.github.io/zeppelin-/`
 
-### 5. Content Overview
+### 4. Content Overview
 The site includes:
 - ✅ Project overview with visual appeal
 - ✅ Enhanced press kit for media coverage
@@ -36,7 +30,7 @@ The site includes:
 - ✅ Privacy-focused legal information
 - ✅ Removed all developer/technical content
 
-### 6. Placeholder Media
+### 5. Placeholder Media
 Media files in `/media/` are currently placeholders. Replace with actual assets:
 - `zeppelin-logo.png` - Main logo/branding
 - `dashboard-preview.png` - Product screenshot
