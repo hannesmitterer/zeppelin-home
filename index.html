@@ -3,498 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeppelin Home®</title>
+    <title>Zeppelin Home® - Proactive Smart Home Optimization</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
-            color: #1a202c;
-            line-height: 1.6;
+            background-color: #f8fcfd; /* Colore di sfondo più chiaro per un look "eco" */
+            color: #1a202c; /* Testo più scuro per un'ottima leggibilità */
         }
-        .nav-link:hover, .dropdown-item:hover {
+        .container {
+            max-width: 1200px;
+        }
+        .button {
+            transition: all 0.3s ease;
+        }
+        .button:hover {
             transform: translateY(-2px);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 255, 255, 0.2);
         }
-        .ecosystem-component {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            cursor: pointer;
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
-        .ecosystem-component:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        .ecosystem-label {
-            user-select: none;
-            cursor: pointer;
-        }
-        #details-panel {
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
         }
         .video-container {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            height: 100vh;
+            overflow: hidden;
         }
-        .video-container iframe {
+        .video-container video {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .content-overlay {
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.5);
             width: 100%;
-            height: 100%;
-        }
-        @keyframes grow {
-            from {
-                transform: scaleX(0);
-            }
-            to {
-                transform: scaleX(1);
-            }
-        }
-        .bar-chart-bar {
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: grow 1.5s ease-out forwards;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
         }
     </style>
 </head>
-<body class="antialiased text-gray-800">
+<body class="antialiased">
 
-    <!-- Success Modal -->
-    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-[100]">
-        <div class="bg-white p-8 rounded-lg shadow-2xl text-center max-w-sm">
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">Messaggio inviato!</h3>
-            <p class="text-gray-600 mb-6">Grazie per il tuo messaggio. Ti risponderemo a breve.</p>
-            <button onclick="hideModal()" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition duration-300">Chiudi</button>
+    <!-- Menu per dispositivi mobili (nascosto di default) -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-gray-900 bg-opacity-95 hidden md:hidden p-8">
+        <div class="flex justify-end">
+            <button id="close-menu-button" class="text-gray-400 focus:outline-none">
+                <!-- Icona di chiusura come SVG -->
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
         </div>
+        <nav class="flex flex-col items-center justify-center space-y-8 mt-16">
+            <a href="#about" class="text-2xl font-bold text-gray-200 hover:text-cyan-400 transition-colors">About</a>
+            <a href="#tech" class="text-2xl font-bold text-gray-200 hover:text-cyan-400 transition-colors">Technology</a>
+            <a href="#metrics" class="text-2xl font-bold text-gray-200 hover:text-cyan-400 transition-colors">Metrics</a>
+            <a href="#future" class="text-2xl font-bold text-gray-200 hover:text-cyan-400 transition-colors">Future</a>
+            <a href="#docs" class="text-2xl font-bold text-gray-200 hover:text-cyan-400 transition-colors">Docs</a>
+            <a href="#contact" class="text-2xl font-bold text-gray-200 hover:text-cyan-400 transition-colors">Contact</a>
+        </nav>
     </div>
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold text-gray-900">Zeppelin Home®</a>
-                </div>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Home</a>
-                    <a href="docs/executive-summary.md" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Executive Summary</a>
-                    <a href="docs/technical-specifications.md" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Tech Specs</a>
-                    <a href="docs/user-guide.md" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">User Guide</a>
-                    <a href="docs/pillars.md" class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 nav-link">Pillars</a>
-                    <div class="relative group">
-                        <button class="text-gray-600 hover:text-gray-900 font-medium transition duration-300 focus:outline-none flex items-center">
-                            Documentazione
-                            <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden group-hover:block">
-                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <a href="docs/business-plan.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Business Plan</a>
-                                <a href="docs/market-analysis.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Market Analysis</a>
-                                <a href="docs/team-partners.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">Team & Partners</a>
-                                <a href="docs/faq.md" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dropdown-item">FAQ</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">Contatti</a>
-                </div>
-                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none">
+    <!-- Contenitore principale -->
+    <div class="container mx-auto px-4">
+
+        <!-- Intestazione/Navigazione -->
+        <header class="flex justify-between items-center py-8 md:py-16">
+            <h1 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-cyan-500">
+                Zeppelin Home®
+            </h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-sm font-medium hover:text-green-500 transition-colors">About</a>
+                <a href="#tech" class="text-sm font-medium hover:text-green-500 transition-colors">Technology</a>
+                <a href="#metrics" class="text-sm font-medium hover:text-green-500 transition-colors">Metrics</a>
+                <a href="#future" class="text-sm font-medium hover:text-green-500 transition-colors">Future</a>
+                <a href="#docs" class="text-sm font-medium hover:text-green-500 transition-colors">Docs</a>
+                <a href="#contact" class="text-sm font-medium hover:text-green-500 transition-colors">Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-button" class="text-gray-600 focus:outline-none">
+                    <!-- Icona a forma di hamburger come SVG -->
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
                 </button>
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 bg-gray-100">Home</a>
-                    <a href="docs/executive-summary.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Executive Summary</a>
-                    <a href="docs/technical-specifications.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Tech Specs</a>
-                    <a href="docs/user-guide.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">User Guide</a>
-                    <a href="docs/pillars.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Pillars</a>
-                    <a href="docs/business-plan.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Business Plan</a>
-                    <a href="docs/market-analysis.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Market Analysis</a>
-                    <a href="docs/team-partners.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Team & Partners</a>
-                    <a href="docs/faq.md" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">FAQ</a>
-                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50">Contatti</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+        </header>
 
-    <!-- Hero Section -->
-    <div class="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-700 py-20 lg:py-40">
-        <div class="video-container">
-            <!-- Replace with your official YouTube video URL -->
-            <iframe
-                src="https://www.youtube.com/embed/X2mdsyEAO_M?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=X2mdsyEAO_M&modestbranding=1"
-                frameborder="0"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                class="absolute inset-0 w-full h-full object-cover"
-            ></iframe>
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-        </div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
-                Zeppelin Home®
-            </h1>
-            <p class="mt-4 text-xl sm:text-2xl text-gray-300 font-light max-w-3xl mx-auto">
-                Il **DNA Concettuale** di una smart home rivoluzionaria e auto-alimentata. Non è solo un prodotto, ma un ecosistema.
-            </p>
-            <a href="#zeppelin-smart" class="mt-8 inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
-                Esplora l'Ecosistema
-            </a>
-        </div>
     </div>
 
-    <!-- Main Content Summary -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Panoramica del progetto</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    La Smart Home del Futuro
+    <!-- Sezione Hero con Video -->
+    <section id="about" class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-home-with-smart-appliances-and-devices-48356-large.mp4" type="video/mp4">
+            Il tuo browser non supporta il tag video.
+        </video>
+        <div class="content-overlay">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter text-gray-50 mb-4">
+                    Ridefinire la Smart Home.
+                </h2>
+                <p class="text-lg md:text-xl text-gray-200 mb-8">
+                    Zeppelin Home® sposta il focus dall'automazione reattiva all'ottimizzazione proattiva e intelligente. La nostra intelligenza artificiale on-device e la gestione predittiva dell'energia creano un ecosistema coeso, efficiente e privato.
                 </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                    Zeppelin Home è un progetto innovativo incentrato su una piattaforma di vita intelligente sostenibile e integrata. Il nostro obiettivo è creare un'esperienza senza soluzione di continuità in cui tecnologia, design e ambiente coesistano in perfetta armonia.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ZeppelinSmart Section (smart/) -->
-    <section id="zeppelin-smart" class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">ZeppelinSmart</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    L'Ecosistema Interattivo
-                </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                    Clicca sui componenti qui sotto per scoprire come lavorano insieme per creare un'esperienza di vita intelligente senza soluzione di continuità.
-                </p>
-            </div>
-            <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <!-- Interactive SVG Diagram -->
-                <div class="relative w-full overflow-hidden bg-gray-100 rounded-lg shadow-lg p-4 md:p-8">
-                    <svg class="w-full h-auto" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <filter id="shadow">
-                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.2"/>
-                            </filter>
-                        </defs>
-                        <!-- Main House Outline -->
-                        <path d="M50 250 H750 V450 H50 Z" stroke="#334155" stroke-width="5" fill="#e2e8f0" filter="url(#shadow)"/>
-                        <path d="M50 250 L400 50 L750 250" stroke="#334155" stroke-width="5" fill="#cbd5e1" filter="url(#shadow)"/>
-
-                        <!-- Ecosystem Components with IDs -->
-                        <rect id="power-core" x="100" y="300" width="100" height="100" rx="10" fill="#f87171" class="ecosystem-component"/>
-                        <rect id="smart-hub" x="350" y="300" width="100" height="100" rx="10" fill="#60a5fa" class="ecosystem-component"/>
-                        <rect id="mobile-app" x="600" y="300" width="100" height="100" rx="10" fill="#a78bfa" class="ecosystem-component"/>
-
-                        <!-- Labels -->
-                        <text x="150" y="425" text-anchor="middle" font-size="20" font-weight="bold" fill="#334155" class="ecosystem-label">Power Core</text>
-                        <text x="400" y="425" text-anchor="middle" font-size="20" font-weight="bold" fill="#334155" class="ecosystem-label">Smart Hub</text>
-                        <text x="650" y="425" text-anchor="middle" font-size="20" font-weight="bold" fill="#334155" class="ecosystem-label">Mobile App</text>
-                        
-                        <!-- Connecting Lines -->
-                        <line x1="150" y1="350" x2="400" y2="350" stroke="#94a3b8" stroke-width="3" stroke-dasharray="5,5"/>
-                        <line x1="400" y1="350" x2="650" y2="350" stroke="#94a3b8" stroke-width="3" stroke-dasharray="5,5"/>
-                    </svg>
-                </div>
-                <!-- Details Pop-up -->
-                <div id="details-panel" class="bg-gray-100 p-6 rounded-lg shadow-lg hidden">
-                    <h3 id="details-title" class="text-xl font-bold text-gray-900 mb-2"></h3>
-                    <p id="details-text" class="text-gray-600"></p>
-                    <button onclick="hideDetails()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300">Chiudi</button>
+                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                    <a href="technical-specifications.md" class="button px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-green-500 to-blue-500 shadow-lg hover:from-green-400 hover:to-blue-400">
+                        Esplora la Nostra Tecnologia
+                    </a>
+                    <a href="user-guide.md" class="button px-8 py-3 rounded-full font-semibold text-gray-800 bg-white border border-gray-300 shadow-md hover:border-green-500">
+                        Leggi la Guida Utente
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Real-time Data Section (new) -->
-    <section id="real-time-data" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Dati Live</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Produzione e Consumo Energetico
-                </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                    Ecco una panoramica in tempo reale (dati fittizi) del consumo energetico della casa e della produzione da fonti rinnovabili.
-                </p>
+    <!-- Sezioni di contenuto rimanenti -->
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <!-- Sezione Metriche Energetiche in Tempo Reale -->
+        <section id="metrics" class="mb-16 md:mb-24">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl md:text-4xl font-bold mb-2">Metriche Energetiche in Tempo Reale</h3>
+                <p class="text-gray-600">I tuoi dati, in tempo reale. Alimentato da Zeppelin Power Core.</p>
             </div>
-            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <!-- Data Card: Power Consumption -->
-                <div class="p-6 bg-red-100 rounded-lg shadow-md">
-                    <div class="text-4xl font-bold text-red-600" id="power-consumption"></div>
-                    <p class="mt-2 text-lg text-gray-700">Consumo Energetico Attuale (kW)</p>
-                </div>
-                <!-- Data Card: Renewable Production -->
-                <div class="p-6 bg-green-100 rounded-lg shadow-md">
-                    <div class="text-4xl font-bold text-green-600" id="renewable-production"></div>
-                    <p class="mt-2 text-lg text-gray-700">Produzione Rinnovabile (kW)</p>
-                </div>
-                <!-- Data Card: Battery Level -->
-                <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
-                    <div class="text-4xl font-bold text-yellow-600" id="battery-level"></div>
-                    <p class="mt-2 text-lg text-gray-700">Livello Batteria (%)</p>
-                </div>
-                <!-- Data Card: Carbon Footprint Reduction -->
-                <div class="p-6 bg-blue-100 rounded-lg shadow-md">
-                    <div class="text-4xl font-bold text-blue-600" id="carbon-reduction"></div>
-                    <p class="mt-2 text-lg text-gray-700">Riduzione CO2 (kg)</p>
-                </div>
-            </div>
-            <div class="mt-10">
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Panoramica Giornaliera</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Daily Consumption -->
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h4 class="text-lg font-semibold mb-2">Consumo Giornaliero (kWh)</h4>
-                        <div class="h-4 bg-gray-300 rounded-full mb-2">
-                            <div class="bar-chart-bar h-full rounded-full bg-red-500" style="width: 70%;"></div>
-                        </div>
-                        <p class="text-right text-sm text-gray-600">70 kWh</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Scheda Consumo Corrente -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold text-gray-500">Consumo Attuale</span>
+                        <div class="w-2.5 h-2.5 bg-red-500 rounded-full pulse-animation"></div>
                     </div>
-                    <!-- Daily Production -->
-                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                        <h4 class="text-lg font-semibold mb-2">Produzione Giornaliera (kWh)</h4>
-                        <div class="h-4 bg-gray-300 rounded-full mb-2">
-                            <div class="bar-chart-bar h-full rounded-full bg-green-500" style="width: 85%;"></div>
-                        </div>
-                        <p class="text-right text-sm text-gray-600">85 kWh</p>
+                    <p class="text-4xl font-extrabold text-gray-900"><span id="consumption-value">0</span> kWh</p>
+                    <p class="text-xs text-gray-500 mt-1">Aggiornato ogni 3 secondi</p>
+                </div>
+                <!-- Scheda Generazione Solare -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold text-gray-500">Generazione Solare</span>
+                        <div class="w-2.5 h-2.5 bg-yellow-400 rounded-full pulse-animation"></div>
                     </div>
+                    <p class="text-4xl font-extrabold text-gray-900"><span id="solar-value">0</span> kWh</p>
+                    <p class="text-xs text-gray-500 mt-1">Output attuale dai pannelli solari</p>
+                </div>
+                <!-- Scheda Livello Batteria -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold text-gray-500">Livello Batteria</span>
+                        <div class="w-2.5 h-2.5 bg-green-500 rounded-full pulse-animation"></div>
+                    </div>
+                    <p class="text-4xl font-extrabold text-gray-900"><span id="battery-value">0</span> %</p>
+                    <p class="text-xs text-gray-500 mt-1">Carica attuale di Power Core</p>
+                </div>
+                <!-- Scheda Flusso Energetico Netto -->
+                <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold text-gray-500">Flusso Energetico Netto</span>
+                        <div class="w-2.5 h-2.5 bg-blue-500 rounded-full pulse-animation"></div>
+                    </div>
+                    <p class="text-4xl font-extrabold text-gray-900"><span id="net-value">0</span> kWh</p>
+                    <p class="text-xs text-gray-500 mt-1">Importo (-) / Esporto (+)</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Energy Prospects Section -->
-    <section id="energy-prospects" class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Prospettiva Energetica</h2>
-                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Roadmap per l'Ottimizzazione Energetica
-                </p>
-                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                    La nostra strategia di evoluzione del Power Core, separata per applicazioni residenziali e aziendali, si concentra sull'integrazione di tecnologie sostenibili e sullo sviluppo dell'AI.
-                </p>
-            </div>
-            
-            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Applicazioni Residenziali</h3>
-                    <canvas id="residentialChart"></canvas>
+            <div class="bg-white rounded-2xl p-6 shadow-xl border border-gray-200">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-semibold text-gray-500">Andamento del Consumo (Ultimi 30s)</span>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Applicazioni Aziendali</h3>
-                    <canvas id="businessChart"></canvas>
+                <canvas id="consumption-chart" class="w-full h-48"></canvas>
+            </div>
+        </section>
+
+        <!-- Sezione Pilastri Tecnologici -->
+        <section id="tech" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-2">I Nostri Pilastri Tecnici</h3>
+                <p class="text-gray-600">L'innovazione che rende Zeppelin Home® un'evoluzione del vivere intelligente.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pilastro 1: AI On-Device -->
+                <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">AI On-Device & Velocità</h4>
+                    <p class="text-gray-600 mb-4">
+                        A differenza dei sistemi basati su cloud, il nostro Zeppelin Smart Hub utilizza l'IA on-device per una risposta istantanea a latenza zero e massima privacy. I tuoi dati rimangono a casa tua.
+                    </p>
+                    <a href="technical-specifications.md" class="text-sm font-semibold text-green-500 hover:text-green-400 transition-colors">
+                        Scopri di più sul nostro Smart Hub →
+                    </a>
+                </div>
+                <!-- Pilastro 2: Gestione Energetica Predittiva -->
+                <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Gestione Energetica Predittiva</h4>
+                    <p class="text-gray-600 mb-4">
+                        L'algoritmo predittivo di Zeppelin Power Core analizza i modelli di consumo per ottimizzare la distribuzione dell'energia, riducendo gli sprechi e massimizzando il risparmio.
+                    </p>
+                    <a href="technical-specifications.md" class="text-sm font-semibold text-green-500 hover:text-green-400 transition-colors">
+                        Esplora il potere predittivo →
+                    </a>
+                </div>
+                <!-- Pilastro 3: Interoperabilità Universale -->
+                <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Rete Mesh & Interoperabilità</h4>
+                    <p class="text-gray-600 mb-4">
+                        La nostra robusta rete mesh e il supporto universale per protocolli come Zigbee e Z-Wave assicurano che il tuo ecosistema sia scalabile e compatibile con dispositivi di qualsiasi produttore.
+                    </p>
+                    <a href="user-guide.md#compatibility" class="text-sm font-semibold text-green-500 hover:text-green-400 transition-colors">
+                        Controlla la compatibilità dei dispositivi →
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Crowdfunding Section -->
-    <section id="crowdfunding" class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Sostieni il Futuro di Zeppelin Home®
-            </h2>
-            <p class="mt-4 text-xl text-gray-500 max-w-2xl mx-auto">
-                Aiutaci a trasformare il nostro DNA concettuale in una realtà. Il tuo contributo ci permetterà di finanziare la fase di prototipazione e portare la smart home del futuro nelle case di tutti.
-            </p>
-            <div class="mt-8 max-w-md mx-auto">
-                <div class="w-full bg-gray-200 rounded-full h-8 overflow-hidden">
-                    <div class="bg-blue-600 h-8 rounded-full" style="width: 75%;"></div>
-                </div>
-                <div class="flex justify-between mt-2 text-gray-600 text-sm font-semibold">
-                    <span>Raccolti: $225,000</span>
-                    <span>Obiettivo: $300,000</span>
-                </div>
-            </div>
-            <a href="docs/business-plan.md" class="mt-8 inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
-                Scopri il Business Plan e Sostienici
-            </a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Mettiti in Contatto
-            </h2>
-            <p class="mt-4 text-xl text-gray-500 max-w-2xl mx-auto">
-                Per richieste dei media, partnership o supporto, ti preghiamo di utilizzare il modulo di contatto qui sotto.
-            </p>
-            <div class="mt-8">
-                <form id="contact-form" class="max-w-xl mx-auto space-y-4">
-                    <input type="text" placeholder="Il tuo nome" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <input type="email" placeholder="La tua email" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <textarea placeholder="Il tuo messaggio" rows="4" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button type="submit" class="w-full px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md font-semibold transition duration-300">
-                        Invia Messaggio
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2024 Zeppelin Home®. Tutti i diritti riservati.</p>
-        </div>
-    </footer>
-
-    <!-- Chart.js and custom script -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ecosystemData = {
-            'power-core': {
-                title: 'Zeppelin Power Core',
-                description: 'Il Power Core è il cuore del sistema, una soluzione energetica autosufficiente che integra la raccolta solare, cinetica e geotermica per fornire energia continua e off-grid a tutti i dispositivi della smart home.'
-            },
-            'smart-hub': {
-                title: 'Zeppelin Smart Hub',
-                description: 'Il cervello centrale che collega e coordina tutti i dispositivi intelligenti. Utilizza l\'AI on-device per un\'automazione fulminea e un\'interoperabilità senza soluzione di continuità, imparando e adattandosi ai tuoi schemi di vita per ottimizzare il comfort e l\'efficienza.'
-            },
-            'mobile-app': {
-                title: 'Zeppelin Mobile App',
-                description: 'Gestisci l\'intero ecosistema da qualsiasi luogo. L\'app intuitiva fornisce dati in tempo reale sul consumo energetico, il controllo completo sui dispositivi e approfondimenti personalizzati per aiutarti a ridurre il tuo impatto ambientale.'
-            }
-        };
-
-        const detailsPanel = document.getElementById('details-panel');
-        const detailsTitle = document.getElementById('details-title');
-        const detailsText = document.getElementById('details-text');
-        const successModal = document.getElementById('success-modal');
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        function showDetails(componentId) {
-            const data = ecosystemData[componentId];
-            if (data) {
-                detailsTitle.textContent = data.title;
-                detailsText.textContent = data.description;
-                detailsPanel.style.opacity = '0';
-                detailsPanel.classList.remove('hidden');
-                setTimeout(() => {
-                    detailsPanel.style.opacity = '1';
-                    detailsPanel.style.transform = 'scale(1)';
-                }, 10);
-            }
-        }
-
-        function hideDetails() {
-            detailsPanel.style.opacity = '0';
-            detailsPanel.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                detailsPanel.classList.add('hidden');
-            }, 500);
-        }
-
-        document.getElementById('power-core').addEventListener('click', () => showDetails('power-core'));
-        document.getElementById('smart-hub').addEventListener('click', () => showDetails('smart-hub'));
-        document.getElementById('mobile-app').addEventListener('click', () => showDetails('mobile-app'));
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            successModal.classList.remove('hidden');
-        });
-
-        function hideModal() {
-            successModal.classList.add('hidden');
-        }
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Chart Data
-        const chartLabels = ['Anno 5', 'Anno 10', 'Anno 15'];
-        const residentialData = [
-            { label: 'Integrazione', data: [70, 90, 100], borderColor: '#f87171' },
-            { label: 'Sviluppo AI', data: [60, 85, 100], borderColor: '#60a5fa' }
-        ];
-        const businessData = [
-            { label: 'Integrazione', data: [50, 80, 100], borderColor: '#f87171' },
-            { label: 'Sviluppo AI', data: [40, 75, 100], borderColor: '#60a5fa' }
-        ];
-
-        function createChart(canvasId, datasets) {
-            const ctx = document.getElementById(canvasId).getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: chartLabels,
-                    datasets: datasets.map(d => ({
-                        label: d.label,
-                        data: d.data,
-                        borderColor: d.borderColor,
-                        tension: 0.4,
-                        fill: false
-                    }))
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            title: {
-                                display: true,
-                                text: 'Percentuale di Sviluppo (%)'
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.dataset.label}: ${context.raw}%`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
+        </section>
         
-        window.addEventListener('DOMContentLoaded', (event) => {
-            createChart('residentialChart', residentialData);
-            createChart('businessChart', businessData);
-        });
+        <!-- Sezione The Spectacular Future -->
+        <section id="future" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-2">The Spectacular Future</h3>
+                <p class="text-gray-600">Innovazioni e visioni per un ecosistema domestico veramente intelligente.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">AI Predittiva a Potenza Quantistica</h4>
+                    <p class="text-gray-600 mb-4">
+                        Stiamo sviluppando un modulo di calcolo quantistico per il Power Core, che consente previsioni energetiche quasi istantanee e iper-precise. Ciò permetterà alla tua casa di anticipare le esigenze e ottimizzare il consumo energetico con una precisione senza precedenti, imparando le tue abitudini in tempo reale.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Interfacce Multimodali Senza Soluzione di Continuità</h4>
+                    <p class="text-gray-600 mb-4">
+                        Immagina di interagire con la tua casa tramite display olografici e un'IA conversazionale che comprende il tono e il contesto. La nostra interfaccia di prossima generazione andrà oltre gli schermi, creando un'esperienza di vita veramente immersiva e intuitiva.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="future-roadmap.md" class="button px-8 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-green-500 to-cyan-500 shadow-lg hover:from-green-400 hover:to-cyan-400">
+                    Guarda la nostra Roadmap
+                </a>
+            </div>
+        </section>
 
-        // Function to update real-time data
-        function updateRealTimeData() {
-            const powerConsumption = document.getElementById('power-consumption');
-            const renewableProduction = document.getElementById('renewable-production');
-            const batteryLevel = document.getElementById('battery-level');
-            const carbonReduction = document.getElementById('carbon-reduction');
-
-            // Generate random mock data
-            const consumption = (Math.random() * 5 + 1).toFixed(2);
-            const production = (Math.random() * 6 + 1).toFixed(2);
-            const battery = Math.floor(Math.random() * 100);
-            const carbon = (Math.random() * 10).toFixed(2);
-
-            powerConsumption.textContent = consumption;
-            renewableProduction.textContent = production;
-            batteryLevel.textContent = battery + '%';
-            carbonReduction.textContent = carbon;
-        }
-
-        // Update data every 3 seconds
-        setInterval(updateRealTimeData, 3000);
-        updateRealTimeData(); // Initial call
-    </script>
-</body>
-</html>
+        <!-- Sezione Documentazione & Risorse -->
+        <section id="docs" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-2">Documentazione & Risorse</h3>
+                <p class="text-gray-600">Approfondisci i dettagli del progetto Zeppelin Home®.</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <a href="executive-summary.md" class="flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-200 shadow-lg hover:border-green-500 transition-colors">
+                    <svg class="w-12 h-12 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m-5 4H8a2 2 0 01-2-2V7a2 2 0 012-2h4l4 4v8a2 2 0 01-2 2z"></path></svg>
+                    <span class="text-sm font-medium text-gray-900 text-center">Riepilogo Esecutivo</span>
+                </a>
+                <a href="technical-specifications.md" class="flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-200 shadow-lg hover:border-green-500 transition-colors">
+                    <svg class="w-12 h-12 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.357 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span class="text-sm font-medium text-gray-900 text-center">Specifiche Tecniche</span>
+                </a>
+                <a href="market-analysis.md" class="flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-200 shadow-lg hover:border-green-500 transition-colors">
+                    <svg class="w-12 h-12 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                    <span class="text-sm font-medium text-gray-900 text-center">Analisi di Mercato</span>
+                </a>
+                <a href="faq.md" class="flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-200 shadow-lg hover:border-green-500 transition-colors">
+                    <svg class="w-12 h-12 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 3.487-.44.236-.903.588-1.194 1.052-.15.236-.45.588-.8.922m-.488 8V6.456m12-3.9v3m0 0a1.5 1.5 0 011.5 1.5v2.25a1.5 1.5 0 01-1.5 1.5m-12 0a1.5 1.5 0 01-1.5-1.5v-2.25a1.5 1.5 0 011.5-1.5"></path></svg>
+                    <span class="text-sm font-medium text-gray-900 text-center">FAQ</span>
+                </a>
+                <a href="user-guide.md" class="flex flex-col items-center p-6 bg-white rounded-2xl border border-gray-200 shadow-lg hover:border-green-500 transition-colors">
+                    <svg class="w-12 h-12 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.464 9.23
