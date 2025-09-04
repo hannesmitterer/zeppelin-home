@@ -1,4 +1,10 @@
-name: Deploy to GitHub Pages
+- name: Setup Ruby
+  uses: ruby/setup-ruby@v1
+  with:
+    # Changed from '3.1' to '3.2' to satisfy Bundler's version requirement
+    ruby-version: '3.2'
+    bundler-cache: true
+    name: Deploy to GitHub Pages
 
 on:
   push:
