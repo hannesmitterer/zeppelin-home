@@ -3,8 +3,8 @@ layout: default
 title: "Home"
 ---
 
-# Zeppelin Home
-## Revolutionary Smart Home Automation
+# Zeppelin Home is the AI plattform for Zeppelin House - a new Way of Living
+## Zeppelin Home is the designed as Revolutionary Smart Home Automation and available for all home future automation plattforms
 
 Welcome to the future of home automation. Zeppelin Home is an open-source platform that puts you in complete control of your smart home experience.
 
